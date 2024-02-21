@@ -341,7 +341,7 @@ const ActivityInsert = (props) => {
     } else if (hourDifference < activity.hour_num) {
       Swal.fire({
         title: 'กรุณาใส่ข้อมูลใหม่',
-        text: 'ช่วงระยะเวลาเปิด/ปิด มากว่าจำนวนชั่วโมงกิจกรรม',
+        text: 'ช่วงระยะเวลาเปิด/ปิด น้อยกว่าจำนวนชั่วโมงกิจกรรม',
         timer: 3000
       })
       return false

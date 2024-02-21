@@ -33,7 +33,6 @@ const Repassword = () => {
     password: "",
     confirm_password: "",
   })
-  console.log(user);
   const getData = async () => {
     try {
       let response = await axios.post(
@@ -123,8 +122,9 @@ const Repassword = () => {
   return (
     <div>
       <div>
-        <Card>
-          <Row>
+      <br />
+        <Card >
+          <Row justify="center">
             <Col span={6}></Col>
             <Col>
               <h4>รีเซ็ตรหัสผ่าน</h4>
@@ -135,7 +135,6 @@ const Repassword = () => {
           <Row justify="center">
             <Col span={16}>
               <Input
-                size="large"
                 name="username"
                 placeholder="ชื่อผู้ใช้"
                 onChange={(e)=>handleDatas(e)}
@@ -149,7 +148,6 @@ const Repassword = () => {
             <Col span={16}>
               <Input
                 type="password"
-                size="large"
                 name="password"
                 placeholder="รหัสผ่านใหม่"
                 onChange={(e)=>handleDatas(e)}
@@ -163,7 +161,6 @@ const Repassword = () => {
             <Col span={16}>
               <Input
                 type="password"
-                size="large"
                 name="confirm_password"
                 placeholder="ยืนยันรหัสผ่าน"
                 onChange={(e)=>handleDatas(e)}
@@ -176,7 +173,7 @@ const Repassword = () => {
           <Row justify="center">
             <Col span={8}>
               <Link to={"/Login"}>
-                <Button size="large" >
+                <Button>
                   ย้อนกลับ
                 </Button>
               </Link>
@@ -185,8 +182,6 @@ const Repassword = () => {
             <Col span={8}>
               <Button
                 type="submit"
-                size="large"
-                block
                 onClick={(e) => handleSubmit(e)}
               >
                 บันทึก
