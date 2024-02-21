@@ -14,8 +14,8 @@
   "author": "The CoreUI Team (https://github.com/orgs/coreui/people)",
   "scripts": {
     "build": "react-scripts build",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "changelog": "auto-changelog --starting-version 4.4.0 --commit-limit false --hide-credit",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.js\"",
@@ -57,6 +57,7 @@
     "auto-changelog": "~2.4.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "gh-pages": "^6.1.1",
     "prettier": "2.7.1",
     "react-scripts": "5.0.1",
     "sass": "^1.54.4",
