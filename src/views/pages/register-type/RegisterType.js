@@ -176,7 +176,6 @@ const RegisterType = () => {
             user_approve_status: userS.user_approve_status,
           }
         );
-        console.log(res.data.require);
         if (res.data.require) {
           Swal.fire({
             icon: "success",
@@ -204,9 +203,10 @@ const RegisterType = () => {
       )
       if (response.data.require) {
         setUserType(response.data.data);
-      } else {
-        console.log(response.data.message);
-      }
+      } 
+      // else {
+      //   console.log(response.data.message);
+      // }
     } catch (error) {
       console.log(error);
     }
@@ -221,9 +221,10 @@ const RegisterType = () => {
       )
       if (response.data.require) {
         setPrefix(response.data.data);
-      } else {
-        console.log(response.data.message);
-      }
+      } 
+      // else {
+      //   console.log(response.data.message);
+      // }
     } catch (error) {
       console.log(error);
     }

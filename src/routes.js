@@ -85,7 +85,6 @@ const PaperUpdate = React.lazy(() =>
 const ReportBy = React.lazy(() => import("./views/report/report-by/ReportBy"));
 // localStorage.clear()
 const user = JSON.parse(localStorage.getItem("user"));
-console.log(user);
 let routes = [];
 if (user != null) {
   routes.push(

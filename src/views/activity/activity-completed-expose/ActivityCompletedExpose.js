@@ -15,9 +15,6 @@ import {
   import { Link } from "react-router-dom";
 
   const { Option } = Select;
-  const SelectRecruit = (value) => {
-    console.log(`selected ${value}`);
-  };
   const { TextArea } = Input;
   const ActivityCompletedExpose = () => {
   
@@ -150,7 +147,6 @@ import {
                 style={{
                   width: 390,
                 }}
-                onChange={SelectRecruit}
                 disabled
               >
                 <Option value="ac_category_id">ด้านที่ 1 กิจกรรมจิตอาสา เกี่ยวกับร่างกาย</Option>
@@ -215,7 +211,6 @@ import {
                   <br />
                   <Select
                     defaultValue="เลือก"
-                    onChange={SelectRecruit}
                     style={{
                       width: 140,
                     }}

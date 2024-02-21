@@ -50,7 +50,6 @@ const CalendarUpdate = () => {
           timer: 2000
         })
       }
-      console.log(calendar);
       // var date = moment(calendar.calendar_end);
       // var dateMonthAsWord = moment(calendar.calendar_end).format("DD-MMM-YYYY");
       // console.log("ASDASD");

@@ -27,29 +27,11 @@ import Swal from "sweetalert2";
 
 const Repassword = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState([])
   const [password, setPassword] = useState({
     username: "",
     password: "",
     confirm_password: "",
   })
-  const getData = async () => {
-    try {
-      let response = await axios.post(
-        `${GROBAL.BASE_SERVER.URL}user/index.php`,
-        {
-          action: "getUserBy"
-        }
-      );
-      if (response.data.require) {
-        setUser(response.data.data);
-      } else {
-        console.log(response.data.message);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const checkSubmit = () => {
     if (password.username === "") {
       Swal.fire({

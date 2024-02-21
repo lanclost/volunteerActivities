@@ -68,8 +68,6 @@ const ActivityDetail = () => {
       );
       if (response.data.require) {
         setActivity(response.data.data[0]);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);

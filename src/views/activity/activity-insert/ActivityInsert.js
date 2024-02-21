@@ -42,7 +42,6 @@ const ActivityInsert = (props) => {
     user_id: "",
     activity_approve_status: "",
   });
-  console.log(activity);
   const [users, setUsers] = useState([]);
   const checkSubmit = () => {
 

@@ -41,9 +41,6 @@ const ActivityRequestDetail = () => {
     department_id: "",
     faculty_id: "",
   });
-  const onChange = (date, dateString) => {
-    console.log(date, dateString);
-  };
   const columns = [
     {
       title: 'ลำดับ',
@@ -144,7 +141,6 @@ const ActivityRequestDetail = () => {
               style={{
                 width: 390,
               }}
-              onChange={SelectRecruit}
               disabled
             >
               <Option value="ac_category_id">ด้านที่ 1 กิจกรรมจิตอาสา เกี่ยวกับร่างกาย</Option>
@@ -209,7 +205,6 @@ const ActivityRequestDetail = () => {
                 <br />
                 <Select
                   defaultValue="เลือก"
-                  onChange={SelectRecruit}
                   style={{
                     width: 140,
                   }}

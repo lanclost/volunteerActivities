@@ -24,10 +24,6 @@ import Swal from "sweetalert2";
 const ActivityCheckDetail = () => {
   const routeParams = useParams();
   const navigate = useNavigate();
-  const { Option } = Select;
-  const SelectRecruit = (value) => {
-    console.log(`selected ${value}`);
-  };
   const { TextArea } = Input;
   //ternary if
   const user = JSON.parse(window.localStorage.getItem("user"));
@@ -67,8 +63,6 @@ const ActivityCheckDetail = () => {
       );
       if (response.data.require) {
         setActivity(response.data.data[0]);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -120,12 +114,9 @@ const ActivityCheckDetail = () => {
             title: "สำเร็จ",
             text: "บันทึกสำเร็จ",
             timer: 3000,
-          })
-            .then(() => {
-              navigate(`/activity-check/`);
-            });
-        } else {
-          console.log('ผิดพลาด');
+          }).then(() => {
+            navigate(`/activity-check/`);
+          });
         }
       }
     } catch (error) {
@@ -142,9 +133,6 @@ const ActivityCheckDetail = () => {
     getData()
     getActivityList()
   }, [])
-  const onChange = (date, dateString) => {
-    console.log(date, dateString);
-  };
   const columns = [
     {
       title: "รหัสนักศึกษา",
@@ -235,13 +223,13 @@ const ActivityCheckDetail = () => {
               <Col>
                 <label>วันที่เปิดกิจกรรม</label>
                 <br />
-                <DatePicker format={"DD/MM/YYYY"} onChange={onChange} bordered={false} value={moment(activity.date_start)} />
+                <DatePicker format={"DD/MM/YYYY"} bordered={false} value={moment(activity.date_start)} />
               </Col>
               <Col span={2}></Col>
               <Col>
                 <label>วันที่ปิดกิจกรรม</label>
                 <br />
-                <DatePicker format={"DD/MM/YYYY"} onChange={onChange} bordered={false} value={moment(activity.date_start)} />
+                <DatePicker format={"DD/MM/YYYY"} bordered={false} value={moment(activity.date_start)} />
               </Col>
             </Row>
           </Col>

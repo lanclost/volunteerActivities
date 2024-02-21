@@ -38,9 +38,10 @@ const UserDetail = () => {
       );
       if (response.data.require) {
         setUserS(response.data.data[0]);
-      } else {
-        console.log(response.data.message);
-      }
+      } 
+      // else {
+      //   console.log(response.data.message);
+      // }
     } catch (error) {
       console.log(error);
     }
@@ -176,8 +177,6 @@ const UserDetail = () => {
       hour_num: 3,
     },
   ];
-  console.log(routeParams);
-  console.log(users);
   return (
     <>
       <Card title="รายละเอียดผู้ใช้">

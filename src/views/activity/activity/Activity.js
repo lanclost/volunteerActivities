@@ -129,7 +129,7 @@ const Activity = () => {
               </Button>
             </Link>
             <>
-              {user.user_type_id === "01" || activity.find((e) => e.user_id === user.user_id) ? (
+              {user.user_type_id === "01" ? (
                 <Col span={2}>
                   <Link to={`/activity-update/${record.ac_id}`}>
                     <Button>
@@ -142,7 +142,7 @@ const Activity = () => {
               )}
             </>
             <>
-              {user.user_type_id === "01" || activity.find((e) => e.user_id === user.user_id) ? (
+              {user.user_type_id === "01" ? (
                 <>
                   <Button type="danger" onClick={() => {
                     DeleteData(record.ac_id);

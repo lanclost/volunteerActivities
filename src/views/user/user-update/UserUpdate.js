@@ -40,7 +40,6 @@ const UserUpdate = () => {
     image: "",
     user_approve_status: "",
   });
-  console.log(userS);
   const getDataUser = async () => {
     try {
       let response = await axios.post(
@@ -252,13 +251,6 @@ const UserUpdate = () => {
   const handleSelect = (key, data) => {
     setUserS({ ...userS, [key]: data });
   };
-  const SearchSelectFaculty = (value) => {
-    console.log("search:", value);
-  };
-  const SearchSelectDepartment = (value) => {
-    console.log("search:", value);
-  };
-
   return (
     <>
       <Card title="แก้ไขผู้ใช้">
@@ -407,7 +399,6 @@ const UserUpdate = () => {
                   name="faculty_id"
                   value={userS.faculty_id}
                   optionFilterProp="children"
-                  onSearch={SearchSelectFaculty}
                   onChange={(e) => handleSelect("faculty_id", e)}
                   filterOption={(input, option) =>
                     (option?.label ?? "")
@@ -431,7 +422,6 @@ const UserUpdate = () => {
                   placeholder="เลือก"
                   optionFilterProp="children"
                   onChange={(e) => handleSelect("department_id", e)}
-                  onSearch={SearchSelectDepartment}
                   filterOption={(input, option) =>
                     (option?.label ?? "")
                       .toLowerCase()

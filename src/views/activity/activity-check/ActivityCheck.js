@@ -44,8 +44,6 @@ const ActivityCheck = () => {
       });
       if (response.data.require) {
         setActivity(response.data.data);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -186,8 +184,6 @@ const ActivityCheck = () => {
       });
       if (response.data.require) {
         setActivity(response.data.data);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);

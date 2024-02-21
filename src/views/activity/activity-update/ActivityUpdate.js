@@ -370,7 +370,6 @@ const ActivityUpdate = () => {
       title: "จัดการ",
       key: "action",
       render: (_, record) => {
-        console.log(record);
         return (
           <Button type="danger" onClick={() => {
             DeleteData(record.activity_list_id);

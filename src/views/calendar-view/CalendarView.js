@@ -143,7 +143,6 @@ const CalendarView = () => {
       setImagePreview(reader.result);
     };
   };
-  console.log(newImageName);
   const handleUpload = async (event) => {
     if (!selectedFile) {
       alert('Please select a file');

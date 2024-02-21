@@ -10,7 +10,6 @@ const ActivityCompleted = () => {
   const { Search } = Input;
   const user = JSON.parse(window.localStorage.getItem("user"));
   const [activity, setActivity] = useState([]);
-  console.log(activity);
   const getData = async () => {
     try {
       let response = await axios.post(
@@ -45,8 +44,6 @@ const ActivityCompleted = () => {
       });
       if (response.data.require) {
         setActivity(response.data.data);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -192,8 +189,6 @@ const ActivityCompleted = () => {
       });
       if (response.data.require) {
         setActivity(response.data.data);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);

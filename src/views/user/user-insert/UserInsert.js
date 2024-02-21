@@ -176,7 +176,6 @@ const UserInsert = () => {
                         user_approve_status: userS.user_approve_status,
                     }
                 );
-                console.log(res.data);
                 if (res.data.require) {
                     Swal.fire({
                         icon: "success",
@@ -192,7 +191,6 @@ const UserInsert = () => {
             console.log(error);
         }
     };
-    console.log(userS);
     const [prefix, setPrefix] = useState([]);
     const [faculty, setFaculty] = useState([]);
     const [department, setDepartment] = useState([]);
@@ -207,9 +205,10 @@ const UserInsert = () => {
             )
             if (response.data.require) {
                 setUserType(response.data.data);
-            } else {
-                console.log(response.data.message);
-            }
+            } 
+            // else {
+            //     console.log(response.data.message);
+            // }
         } catch (error) {
             console.log(error);
         }
@@ -303,12 +302,6 @@ const UserInsert = () => {
     };
     const handleSelect = (key, data) => {
         setUsers({ ...userS, [key]: data });
-    };
-    const SearchSelectFaculty = (value) => {
-        console.log("search:", value);
-    };
-    const SearchSelectDepartment = (value) => {
-        console.log("search:", value);
     };
     return (
         <>
@@ -448,7 +441,6 @@ const UserInsert = () => {
                                     name="faculty_id"
                                     placeholder="เลือก"
                                     optionFilterProp="children"
-                                    onSearch={SearchSelectFaculty}
                                     size="large"
                                     onChange={(e) => handleSelect("faculty_id", e)}
                                     filterOption={(input, option) =>
@@ -473,7 +465,6 @@ const UserInsert = () => {
                                     optionFilterProp="children"
                                     size="large"
                                     onChange={(e) => handleSelect("department_id", e)}
-                                    onSearch={SearchSelectDepartment}
                                     filterOption={(input, option) =>
                                         (option?.label ?? "")
                                             .toLowerCase()

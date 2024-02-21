@@ -9,7 +9,6 @@ import GROBAL from "../../../GOBAL";
 const UserRequest = () => {
   const { Search } = Input;
   const [user, setUser] = useState([]);
-  console.log(user);
   const getData = async () => {
     try {
       let response = await axios.post(
@@ -21,9 +20,10 @@ const UserRequest = () => {
       );
       if (response.data.require) {
         setUser(response.data.data);
-      } else {
-        console.log(response.data.message);
-      }
+      } 
+      // else {
+      //   console.log(response.data.message);
+      // }
     } catch (error) {
       console.log(error);
     }

@@ -45,8 +45,6 @@ const ActivityCheckEvidence = () => {
       );
       if (response.data.require) {
         setUser(response.data.data[0]);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -94,8 +92,6 @@ const ActivityCheckEvidence = () => {
       );
       if (response.data.require) {
         setActivity(response.data.data[0]);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -129,8 +125,6 @@ const ActivityCheckEvidence = () => {
       );
       if (response.data.require) {
         setAccumulated(response.data.data[0]);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -176,8 +170,6 @@ const ActivityCheckEvidence = () => {
             .then(() => {
               navigate(`/activity-check-detail/${routeParams.id}`);
             });
-        } else {
-          console.log('ผิดพลาด');
         }
       }
     } catch (error) {

@@ -21,7 +21,6 @@ const ActivityConduct = () => {
       );
       response.data.data.forEach((element, index) => {
         let date = element.DateRange.split(" ");
-        console.log(date);
         let Y_start = date[0].split("-")[0];
         let M_start = date[0].split("-")[1]-1;
         let D_start = date[0].split("-")[2];
@@ -29,7 +28,6 @@ const ActivityConduct = () => {
         let M_end = date[1].split("-")[1]-1;
         let D_end = date[1].split("-")[2];
         const date_start = new Date(Y_start, M_start, D_start);
-        console.log(date_start);
         const date_startth = date_start.toLocaleDateString("th-TH", {
           year: "numeric",
           month: "long",
@@ -46,8 +44,6 @@ const ActivityConduct = () => {
       });
       if (response.data.require) {
         setActivity(response.data.data);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -152,7 +148,6 @@ const ActivityConduct = () => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(activity);
   const onSearch = async (value) => {
     try {
       let response = await axios.post(
@@ -188,8 +183,6 @@ const ActivityConduct = () => {
       });
       if (response.data.require) {
         setActivity(response.data.data);
-      } else {
-        console.log(response.data.message);
       }
     } catch (error) {
       console.log(error);

@@ -22,9 +22,10 @@ const User = () => {
       );
       if (response.data.require) {
         setUser(response.data.data);
-      } else {
-        console.log(response.data.message,'getData');
-      }
+      } 
+      // else {
+      //   console.log(response.data.message,'getData');
+      // }
     } catch (error) {
       console.log(error);
     }
@@ -214,9 +215,10 @@ const User = () => {
       );
       if (response.data.require) {
         setUser(response.data.data);
-      } else {
-        console.log(response.data.message,'onSearch');
-      }
+      } 
+      // else {
+      //   console.log(response.data.message,'onSearch');
+      // }
     } catch (error) {
       console.log(error);
     }

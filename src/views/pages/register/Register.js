@@ -58,7 +58,6 @@ const Register = () => {
           digit: 3,
         }
       )
-      console.log(response);
       setUser({ ...user, user_id: response.data.data[0].user_maxcode });
     } catch (error) {
       console.log(error);
@@ -225,7 +224,6 @@ const Register = () => {
     }
   };
   const handleDatas = (datas) => {
-    console.log(datas);
     setUser({ ...user, [datas.target.name]: datas.target.value });
   };
   const handleSelect = (key, data) => {
@@ -313,13 +311,6 @@ const Register = () => {
     getDataPrefix();
     getDataUserLast()
   }, []);
-
-  const SearchSelectFaculty = (value) => {
-    console.log("search:", value);
-  };
-  const SearchSelectDepartment = (value) => {
-    console.log("search:", value);
-  };
 
   return (
     <div>
@@ -465,7 +456,6 @@ const Register = () => {
                     name="faculty_id"
                     placeholder="คณะ"
                     optionFilterProp="children"
-                    onSearch={SearchSelectFaculty}
                     size="large"
                     onChange={(e) => handleSelect("faculty_id", e)}
                     filterOption={(input, option) =>
@@ -491,7 +481,6 @@ const Register = () => {
                     optionFilterProp="children"
                     size="large"
                     onChange={(e) => handleSelect("department_id", e)}
-                    onSearch={SearchSelectDepartment}
                     filterOption={(input, option) =>
                       (option?.label ?? "")
                         .toLowerCase()

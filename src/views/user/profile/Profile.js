@@ -31,9 +31,10 @@ const Profile = () => {
       );
       if (response.data.require) {
         setUserS(response.data.data[0]);
-      } else {
-        console.log(response.data.message);
-      }
+      } 
+      // else {
+      //   console.log(response.data.message);
+      // }
     } catch (error) {
       console.log(error);
     }
@@ -50,14 +51,14 @@ const Profile = () => {
       );
       if (response.data.require) {
         setAccumulatedRemaining(response.data.data[0]);
-      } else {
-        console.log(response.data.message);
-      }
+      } 
+      // else {
+      //   console.log(response.data.message);
+      // }
     } catch (error) {
       console.log(error);
     }
   };
-  console.log(accumulatedRemaining);
   const [accumulatedList, setAccumulatedList] = useState([])
   const getDataAccumulatedList= async () => {
     try {
@@ -73,9 +74,10 @@ const Profile = () => {
       })
       if (response.data.require) {
         setAccumulatedList(response.data.data);
-      } else {
-        console.log(response.data.message);
-      }
+      } 
+      // else {
+      //   console.log(response.data.message);
+      // }
     } catch (error) {
       console.log(error);
     }
@@ -85,8 +87,6 @@ const Profile = () => {
     getDataAccumulatedList()
     getDataAccumulatedRemaining()
   }, [userS.user_id])
-  console.log(userS);
-  console.log(accumulatedList);
   const columns = [
     {
       title: "ลำดับ",
