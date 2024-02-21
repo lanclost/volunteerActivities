@@ -1,0 +1,155 @@
+//register
+.upload-list-inline .ant-upload-list-item {
+    float: left;
+    width: 170px;
+    margin-right: 8px;
+  }
+  
+  .upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
+    float: right;
+  }
+
+  .test{
+    background: red;
+  } 
+
+  //login
+  .logincontainer{
+    position: absolute;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .inputlogin {
+    border-bottom: 2px solid #D5D5D5;
+    border-radius: 12px;
+  }
+  .loginforgot {
+    cursor: pointer;
+    color: #000000;
+  }
+  .loginforgot:hover{
+    // text-decoration: underline;
+    color: #656546; 
+    text-shadow: 1px 1px 2px black, 0 0 3px #fff29d, 0 0 4px #ffe91e;
+  }
+  .iconuser{
+    font-size: 20px;
+    color: #D5D5D5;
+  }
+  .iconUploadProfile {
+    border-radius: 80px;
+    font-size: 100px;
+    color: #bfc557;
+  }
+  .iconUploadProfile:hover {
+    font-size: 100px;
+    color: #ffffff;
+    background: #bfc557;
+    transition: .5s;
+  }
+  .cardlogin{
+    background: rgb(249, 249, 249);
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .cardredius {
+    border-radius: 25px;
+  }
+  //Button
+  .Buttonlogin{
+    border-radius: 10px;
+    background: rgb(76, 143, 244);
+    color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 150, 250, 0.2);
+  }
+  .ButtonCorrect {
+    border-radius: 50px;
+    background: rgb(244, 213, 76);
+    color: #ffffff;
+  }
+  .ButtonCorrect:hover {
+    color:  rgb(244, 213, 76);
+    border-color: #ffffff;
+    transition: .5s;
+  }
+  .ButtonDelete {
+    border-radius: 50px;
+    background: rgb(244, 87, 76);
+    color: #ffffff;
+  }
+  .ButtonDelete:hover {
+    color: rgb(244, 87, 76);
+    border-color: #ffffff;
+    transition: .5s;
+  }
+  .ButtonInsert {
+    border-radius: 12px;
+    background: #32CD32;
+    border-color: #32CD32;
+    color: #fafafa;
+  }
+  .ButtonInsert:hover {
+    background: #fafafa;
+    border-color: #fafafa;
+    color: #32CD32;
+    transition: .5s;
+  }
+  .ButtonRecord {
+    border-radius: 12px;
+    background: #1aeba9;
+    color: #ffffff;
+  }
+  .ButtonRecord:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #1aeba9;
+    font-size: 17px;
+    transition: .5s;
+  }
+  .ButtonUpload {
+    border-radius: 12px;
+    background: #bfc557;
+    color: #ffffff;
+  }
+  .ButtonUpload:hover {
+    color: #bfc557;
+    font-size: 17px;
+    border-color: #ffffff;
+    transition: .5s;
+  }
+  .ButtonBack {
+    border-radius: 12px;
+    background: #595959;
+    color: #ffffff; 
+  }
+  .ButtonBack:hover {
+    color: #595959;
+    font-size: 17px;
+    border-color: #ffffff;
+    transition: .5s;
+  }
+  .Buttondetail {
+    border-radius: 12px;
+    background: #886544;  
+    color: #ffffff; 
+  }
+  .Buttondetail:hover {
+    color: #a0a0a0; 
+    border-color: #ffffff;
+    transition: .5s;
+  }
+  //input
+  .insertradius {
+    border-radius: 12px;
+    box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+  .insertradius:hover {
+    border-color: #ffffff;
+    box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+  .detailradius {
+    border-radius: 12px;
+    box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
