@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/volunteerActivities/static/css/main.4514c9b1.css",
-    "main.js": "/volunteerActivities/static/js/main.a2ef9693.js",
+    "main.js": "/volunteerActivities/static/js/main.69bc49a8.js",
     "static/css/523.9fbce0e0.chunk.css": "/volunteerActivities/static/css/523.9fbce0e0.chunk.css",
     "static/js/523.b3719290.chunk.js": "/volunteerActivities/static/js/523.b3719290.chunk.js",
     "static/js/5520.96a6e85f.chunk.js": "/volunteerActivities/static/js/5520.96a6e85f.chunk.js",
     "static/js/740.4afb361d.chunk.js": "/volunteerActivities/static/js/740.4afb361d.chunk.js",
     "static/js/2895.a09704c9.chunk.js": "/volunteerActivities/static/js/2895.a09704c9.chunk.js",
-    "static/js/9010.ac483d42.chunk.js": "/volunteerActivities/static/js/9010.ac483d42.chunk.js",
+    "static/js/9010.db6aa4d2.chunk.js": "/volunteerActivities/static/js/9010.db6aa4d2.chunk.js",
     "static/js/3001.03a2168a.chunk.js": "/volunteerActivities/static/js/3001.03a2168a.chunk.js",
     "static/js/6188.b752bd49.chunk.js": "/volunteerActivities/static/js/6188.b752bd49.chunk.js",
     "static/js/787.14675f11.chunk.js": "/volunteerActivities/static/js/787.14675f11.chunk.js",
@@ -17,7 +17,7 @@
     "static/js/9298.d986c973.chunk.js": "/volunteerActivities/static/js/9298.d986c973.chunk.js",
     "static/js/5682.9dd79de9.chunk.js": "/volunteerActivities/static/js/5682.9dd79de9.chunk.js",
     "static/js/7189.46f6f537.chunk.js": "/volunteerActivities/static/js/7189.46f6f537.chunk.js",
-    "static/js/481.a9159b16.chunk.js": "/volunteerActivities/static/js/481.a9159b16.chunk.js",
+    "static/js/481.24c8380f.chunk.js": "/volunteerActivities/static/js/481.24c8380f.chunk.js",
     "static/js/7108.edd23bfd.chunk.js": "/volunteerActivities/static/js/7108.edd23bfd.chunk.js",
     "static/js/5424.6aeaccdc.chunk.js": "/volunteerActivities/static/js/5424.6aeaccdc.chunk.js",
     "static/js/5215.e881d136.chunk.js": "/volunteerActivities/static/js/5215.e881d136.chunk.js",
@@ -60,13 +60,13 @@
     "static/media/8.jpg": "/volunteerActivities/static/media/8.35ee8919ea545620a475.jpg",
     "index.html": "/volunteerActivities/index.html",
     "main.4514c9b1.css.map": "/volunteerActivities/static/css/main.4514c9b1.css.map",
-    "main.a2ef9693.js.map": "/volunteerActivities/static/js/main.a2ef9693.js.map",
+    "main.69bc49a8.js.map": "/volunteerActivities/static/js/main.69bc49a8.js.map",
     "523.9fbce0e0.chunk.css.map": "/volunteerActivities/static/css/523.9fbce0e0.chunk.css.map",
     "523.b3719290.chunk.js.map": "/volunteerActivities/static/js/523.b3719290.chunk.js.map",
     "5520.96a6e85f.chunk.js.map": "/volunteerActivities/static/js/5520.96a6e85f.chunk.js.map",
     "740.4afb361d.chunk.js.map": "/volunteerActivities/static/js/740.4afb361d.chunk.js.map",
     "2895.a09704c9.chunk.js.map": "/volunteerActivities/static/js/2895.a09704c9.chunk.js.map",
-    "9010.ac483d42.chunk.js.map": "/volunteerActivities/static/js/9010.ac483d42.chunk.js.map",
+    "9010.db6aa4d2.chunk.js.map": "/volunteerActivities/static/js/9010.db6aa4d2.chunk.js.map",
     "3001.03a2168a.chunk.js.map": "/volunteerActivities/static/js/3001.03a2168a.chunk.js.map",
     "6188.b752bd49.chunk.js.map": "/volunteerActivities/static/js/6188.b752bd49.chunk.js.map",
     "787.14675f11.chunk.js.map": "/volunteerActivities/static/js/787.14675f11.chunk.js.map",
@@ -76,7 +76,7 @@
     "9298.d986c973.chunk.js.map": "/volunteerActivities/static/js/9298.d986c973.chunk.js.map",
     "5682.9dd79de9.chunk.js.map": "/volunteerActivities/static/js/5682.9dd79de9.chunk.js.map",
     "7189.46f6f537.chunk.js.map": "/volunteerActivities/static/js/7189.46f6f537.chunk.js.map",
-    "481.a9159b16.chunk.js.map": "/volunteerActivities/static/js/481.a9159b16.chunk.js.map",
+    "481.24c8380f.chunk.js.map": "/volunteerActivities/static/js/481.24c8380f.chunk.js.map",
     "7108.edd23bfd.chunk.js.map": "/volunteerActivities/static/js/7108.edd23bfd.chunk.js.map",
     "5424.6aeaccdc.chunk.js.map": "/volunteerActivities/static/js/5424.6aeaccdc.chunk.js.map",
     "5215.e881d136.chunk.js.map": "/volunteerActivities/static/js/5215.e881d136.chunk.js.map",
@@ -118,6 +118,6 @@
   },
   "entrypoints": [
     "static/css/main.4514c9b1.css",
-    "static/js/main.a2ef9693.js"
+    "static/js/main.69bc49a8.js"
   ]
 }
