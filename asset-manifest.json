@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/volunteerActivities/static/css/main.4514c9b1.css",
-    "main.js": "/volunteerActivities/static/js/main.781e31f6.js",
+    "main.js": "/volunteerActivities/static/js/main.1520ba1e.js",
     "static/css/523.9fbce0e0.chunk.css": "/volunteerActivities/static/css/523.9fbce0e0.chunk.css",
     "static/js/523.322692bb.chunk.js": "/volunteerActivities/static/js/523.322692bb.chunk.js",
     "static/js/5520.782fa137.chunk.js": "/volunteerActivities/static/js/5520.782fa137.chunk.js",
@@ -60,7 +60,7 @@
     "static/media/8.jpg": "/volunteerActivities/static/media/8.35ee8919ea545620a475.jpg",
     "index.html": "/volunteerActivities/index.html",
     "main.4514c9b1.css.map": "/volunteerActivities/static/css/main.4514c9b1.css.map",
-    "main.781e31f6.js.map": "/volunteerActivities/static/js/main.781e31f6.js.map",
+    "main.1520ba1e.js.map": "/volunteerActivities/static/js/main.1520ba1e.js.map",
     "523.9fbce0e0.chunk.css.map": "/volunteerActivities/static/css/523.9fbce0e0.chunk.css.map",
     "523.322692bb.chunk.js.map": "/volunteerActivities/static/js/523.322692bb.chunk.js.map",
     "5520.782fa137.chunk.js.map": "/volunteerActivities/static/js/5520.782fa137.chunk.js.map",
@@ -118,6 +118,6 @@
   },
   "entrypoints": [
     "static/css/main.4514c9b1.css",
-    "static/js/main.781e31f6.js"
+    "static/js/main.1520ba1e.js"
   ]
 }
