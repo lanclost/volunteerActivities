@@ -52,7 +52,7 @@ const student = [
       },
       {
         component: CNavItem,
-        name: 'อยู่ระหว่างดำเนินการ',
+        name: 'กิจกรรมที่กำลังเข้าร่วม',
         to: '/activity-associated',
       },
       {

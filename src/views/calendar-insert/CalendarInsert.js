@@ -103,9 +103,12 @@ const CalendarInsert = () => {
   const handleDatas = (datas) => {
     setCalendar({ ...calendar, [datas.target.name]: datas.target.value });
   };
-  const onChange = (dateString, name) => {
-    setCalendar({ ...calendar, [name]: dateString });
-    // setCalendar({...calendar,"calendar_start": dateString});
+  const handleDate = (dateString, name) => {
+    let D_date = dateString.split("/")[0];
+    let M_date = dateString.split("/")[1];
+    let Y_date = dateString.split("/")[2];
+    const date = (`${Y_date}-${M_date}-${D_date}`);
+    setCalendar({ ...calendar, [name]: date });
   };
   return (
     <>
@@ -118,9 +121,9 @@ const CalendarInsert = () => {
                 <br />
                 <DatePicker
                   format={"DD/MM/YYYY"}
-                  name="calendar_start"
+                  placeholder="เลือก"
                   onChange={(e, dateString) =>
-                    onChange(dateString, "calendar_start")
+                    handleDate(dateString, "calendar_start")
                   }
                   required
                 />
@@ -131,8 +134,9 @@ const CalendarInsert = () => {
                 <br />
                 <DatePicker
                   format={"DD/MM/YYYY"}
+                  placeholder="เลือก"
                   onChange={(e, dateString) =>
-                    onChange(dateString, "calendar_end")
+                    handleDate(dateString, "calendar_end")
                   }
                   required
                 />

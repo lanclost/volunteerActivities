@@ -28,6 +28,8 @@ const UserDetail = () => {
     user_id: "",
     user_approve_status: "",
   });
+  const [accumulatedList, setAccumulatedList] = useState([])
+  const [accumulatedRemaining, setAccumulatedRemaining] = useState([])
   const getData = async () => {
     try {
       let response = await axios.post(
@@ -38,10 +40,49 @@ const UserDetail = () => {
       );
       if (response.data.require) {
         setUserS(response.data.data[0]);
-      } 
+      }
       // else {
       //   console.log(response.data.message);
       // }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const getDataAccumulatedRemaining = async () => {
+    try {
+      let response = await axios.post(
+        `${GROBAL.BASE_SERVER.URL}accumulated/index.php`,
+        {
+          action: "getAccumulatedByRemaining",
+          user_id: routeParams.id,
+        }
+      );
+      if (response.data.require) {
+        setAccumulatedRemaining(response.data.data[0]);
+      } else {
+        console.log(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const getDataAccumulatedList = async () => {
+    try {
+      let response = await axios.post(
+        `${GROBAL.BASE_SERVER.URL}accumulated/index.php`,
+        {
+          action: "getAccumulatedByList",
+          user_id: routeParams.id,
+        }
+      );
+      response.data.data.forEach((element, index) => {
+        element["index"] = index + 1
+      })
+      if (response.data.require) {
+        setAccumulatedList(response.data.data);
+      } else {
+        console.log(response.data.message);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -92,6 +133,10 @@ const UserDetail = () => {
     handleDatas();
     getData();
   }, []);
+  useEffect(() => {
+    getDataAccumulatedList()
+    getDataAccumulatedRemaining()
+  }, []);
   const DeleteData = async (user_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -121,7 +166,7 @@ const UserDetail = () => {
             navigate("/user-request");
           });
         } else {
-          console.log(response.data.message,'DeleteData');
+          console.log(response.data.message, 'DeleteData');
         }
       }
     });
@@ -131,50 +176,26 @@ const UserDetail = () => {
       title: "ลำดับ",
       dataIndex: "index",
       key: "index",
-      render: (text) => <a>{text}</a>,
     },
     {
       title: "ชื่อกิจกรรม",
-      dataIndex: "ac_name",
-      key: "ac_name",
+      dataIndex: "activity_name",
+      key: "activity_name",
     },
     {
       title: "ประเภทด้านกิจกรรม",
-      dataIndex: "ac_category_id",
-      key: "ac_category_id",
+      dataIndex: "category",
+      key: "category",
     },
     {
       title: "ประเภทกิจกรรม",
-      key: "ac_type_id",
-      dataIndex: "ac_type_id",
+      key: "type_name",
+      dataIndex: "type_name",
     },
     {
       title: "จำนวนชั่วโมง",
-      key: "hour_num",
-      dataIndex: "hour_num",
-    },
-  ];
-  const data = [
-    {
-      index: "1",
-      ac_name: "บริจาคเลือด",
-      ac_category_id: "ด้านที่ 6 กิจกรรมจิตอาสา เกี่ยวกับการเป็นอาสาสมัคร",
-      ac_type_id: "กิจกรรมภายนอก",
-      hour_num: 5,
-    },
-    {
-      index: "2",
-      ac_name: "กวาดลานวัด",
-      ac_category_id: "ด้านที่ 2 กิจกรรมจิตอาสา เกี่ยวกับการทำความสะอาด",
-      ac_type_id: "กิจกรรมภายใน",
-      hour_num: 4,
-    },
-    {
-      index: "3",
-      ac_name: "อบรมกีฬา",
-      ac_category_id: "ด้านที่ 1 กิจกรรมจิตอาสา เกี่ยวกับร่างกาย",
-      ac_type_id: "กิจกรรมภายใน",
-      hour_num: 3,
+      key: "accumulated_hours",
+      dataIndex: "accumulated_hours",
     },
   ];
   return (
@@ -229,7 +250,7 @@ const UserDetail = () => {
                       <label>รหัสนักศึกษา</label>
                       <br />
                       <Input
-                      bordered={false}
+                        bordered={false}
                         value={users.student_id}
                       />
                     </Col>
@@ -248,7 +269,7 @@ const UserDetail = () => {
                       <label>คณะ</label>
                       <br />
                       <Input
-                      bordered={false}
+                        bordered={false}
                         value={users.faculty_name}
                       />
                     </Col>
@@ -257,7 +278,7 @@ const UserDetail = () => {
                       <label>สาขา</label>
                       <br />
                       <Input
-                      bordered={false}
+                        bordered={false}
                         value={users.department_name}
                       />
                     </Col>
@@ -282,9 +303,8 @@ const UserDetail = () => {
                     <Col span={2}></Col>
                     <Col span={8}>
                       <Input
-                        placeholder="12"
-                        required
-                        disabled
+                        value={accumulatedRemaining.maximum_hour}
+                        bordered={false}
                       />
                     </Col>
                   </Row>
@@ -297,16 +317,15 @@ const UserDetail = () => {
                     <Col span={4}></Col>
                     <Col span={8}>
                       <Input
-                        placeholder="38"
-                        required
-                        disabled
+                        value={accumulatedRemaining.remaining_hours}
+                        bordered={false}
                       />
                     </Col>
                   </Row>
                 </Col>
               </Row>
               <br />
-              <Table columns={columns} dataSource={data} />
+              <Table columns={columns} dataSource={accumulatedList} rowKey="accumulated_id" />
             </>
           ) : (
             <></>

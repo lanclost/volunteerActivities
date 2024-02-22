@@ -189,6 +189,7 @@ const UserModal = (props) => {
         <Table
             columns={columns}
             dataSource={users}
+            pagination={{ pageSize: 5 }}
             rowKey="user_id"
         />
     </Modal>
