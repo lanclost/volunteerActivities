@@ -442,30 +442,41 @@ const ActivityCheckEvidence = () => {
         <br />
         <Row justify="center">
           <>
-            {user.user_type_id === "01" ? (
-              <Col span={2}>
-                <Link to={`/activity-check-detail/${routeParams.id}`}>
-                  <Button>
-                    ย้อนกลับ
-                  </Button>
-                </Link>
-              </Col>
-            ) : (
-              <></>
-            )}
+            {activity.activity_approve_status === "allow" ? (
+              <>
+                {user.user_type_id === "01" ? (
+                  <Col span={2}>
+                    <Link to={`/activity-check-detail/${routeParams.id}`}>
+                      <Button>
+                        ย้อนกลับ
+                      </Button>
+                    </Link>
+                  </Col>
+                ) : (<></>)}
+                <>
+                  {user.user_type_id === "05" ? (
+                    <Col span={2}>
+                      <Link to={`/activity-detail/${routeParams.id}`}>
+                        <Button>
+                          ย้อนกลับ
+                        </Button>
+                      </Link>
+                    </Col>
+                  ) : (<></>)}
+                </>
+              </>
+            ) : (<></>)}
           </>
           <>
-            {user.user_type_id === "05" ? (
+            {activity.activity_approve_status === "finish" ? (
               <Col span={2}>
-                <Link to={`/activity-detail/${routeParams.id}`}>
+                <Link to={`/activity-completed-expose/${routeParams.id}`}>
                   <Button>
                     ย้อนกลับ
                   </Button>
                 </Link>
               </Col>
-            ) : (
-              <></>
-            )}
+            ) : (<></>)}
           </>
           <Col span={2}></Col>
           <>

@@ -420,57 +420,25 @@ const ActivityDetail = () => {
           <>
             {activity.activity_approve_status === "wait" ? (
               <>
-                <>
-                  {user.user_type_id === "01" ? (
-                    <>
-                      <Col span={2}>
-                        <Button onClick={(e) => handleSubmit(e)}>
-                          อนุมัติ
-                        </Button>
-                      </Col>
-                      <Col span={1}></Col>
-                      <Col span={2}>
-
-                        <Button onClick={() => {
-                          DeleteData(activity.ac_id);
-                        }}>
-                          ไม่อนุญาต
-                        </Button>
-                      </Col>
-                    </>
-                  ) : (
-                    <>
-                    </>
-                  )}
-                </>
-                <>
-                  {activity.user_id ? (
-                    <>
-                      {user.user_type_id !== "01" ? (
-                        <>
-                          <Col span={2}>
-                            <Link to={`/activity-update/${activity.ac_id}`}>
-                              <Button>
-                                แก้ไข
-                              </Button>
-                            </Link>
-                          </Col>
-                        </>
-                      ) : (
-                        <>
-                        </>
-                      )}
-                    </>
-                  ) : (
-                    <>
-                    </>
-                  )}
-                </>
+                {user.user_type_id === "01" ? (
+                  <>
+                    <Col span={2}>
+                      <Button type="primary" onClick={(e) => handleSubmit(e)}>
+                        อนุมัติ
+                      </Button>
+                    </Col>
+                    <Col span={1}></Col>
+                    <Col span={2}>
+                      <Button type="danger" onClick={() => {
+                        DeleteData(activity.ac_id);
+                      }}>
+                        ไม่อนุมัติ
+                      </Button>
+                    </Col>
+                  </>
+                ) : (<></>)}
               </>
-            ) : (
-              <>
-              </>
-            )}
+            ) : (<></>)}
           </>
           <Col span={3}>
             <>

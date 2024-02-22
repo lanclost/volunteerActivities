@@ -38,8 +38,8 @@ const ActivityRequestDetail = React.lazy(() =>
 const ActivityConduct = React.lazy(() =>
   import("./views/activity/activity-conduct/ActivityConduct")
 );
-const ActivityConductDetail = React.lazy(() =>
-  import("./views/activity/activity-conduct-detail/ActivityConductDetail")
+const ActivitOpened = React.lazy(() =>
+  import("./views/activity/activity-opened/ActivitOpened.js")
 );
 const ActivityAssociated = React.lazy(() =>
   import("./views/activity/activity-associated/ActivityAssociated.js")
@@ -153,7 +153,7 @@ if (user != null) {
         exact: true,
       },
       {
-        path: "/activity-completed-expose",
+        path: "/activity-completed-expose/:id",
         name: "ActivityCompletedExpose",
         element: ActivityCompletedExpose,
         exact: true,
@@ -174,12 +174,6 @@ if (user != null) {
         path: "/activity-conduct",
         name: "ActivityConduct",
         element: ActivityConduct,
-        exact: true,
-      },
-      {
-        path: "/activity-conduct-detail",
-        name: "ActivityConductDetail",
-        element: ActivityConductDetail,
         exact: true,
       },
       //user
@@ -242,15 +236,20 @@ if (user != null) {
         exact: true,
       }
     );
-
-    //teacher
-  } else if (user.user_type_id == "03") {
+    //officer
+  } else if (user.user_type_id == "02") {
     routes.push(
       { path: "/profile", name: "Profile", element: Profile, exact: true },
       {
         path: "/activity-send",
         name: "ActivitySend",
         element: ActivitySend,
+        exact: true,
+      },
+      {
+        path: "/activity-opened",
+        name: "ActivitOpened",
+        element: ActivitOpened,
         exact: true,
       },
       {
@@ -266,7 +265,35 @@ if (user != null) {
         exact: true,
       }
     );
-
+    //teacher
+  } else if (user.user_type_id == "03") {
+    routes.push(
+      { path: "/profile", name: "Profile", element: Profile, exact: true },
+      {
+        path: "/activity-send",
+        name: "ActivitySend",
+        element: ActivitySend,
+        exact: true,
+      },
+      {
+        path: "/activity-opened",
+        name: "ActivitOpened",
+        element: ActivitOpened,
+        exact: true,
+      },
+      {
+        path: "/user-update/:id",
+        name: "UserUpdate",
+        element: UserUpdate,
+        exact: true,
+      },
+      {
+        path: "/paper",
+        name: "Paper",
+        element: Paper,
+        exact: true,
+      }
+    );
     //student
   } else if (user.user_type_id == "05") {
     routes.push(
@@ -323,6 +350,12 @@ if (user != null) {
         path: "/activity-send",
         name: "ActivitySend",
         element: ActivitySend,
+        exact: true,
+      },
+      {
+        path: "/activity-opened",
+        name: "ActivitOpened",
+        element: ActivitOpened,
         exact: true,
       },
       {

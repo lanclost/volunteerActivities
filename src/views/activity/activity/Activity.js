@@ -64,7 +64,7 @@ const Activity = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const response = await axios.post(
-          `${GROBAL.BASE_SERVER.URL}activity/delete/index.php`,
+          `${GROBAL.BASE_SERVER.URL}activity-list/delete/index.php`,
           {
             ac_id: ac_id,
           }
@@ -218,6 +218,7 @@ const Activity = () => {
               onSearch={(e) => onSearch(e)}
             />
           </Col>
+          <Col span={1}></Col>
           <>
             {user.user_type_id !== "05" && user.user_type_id !== "01" ? (<>
               <Link to={`/activity/activity-insert`}>

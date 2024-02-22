@@ -175,6 +175,11 @@ const officer = [
         name: 'รายชื่อกิจกรรม',
         to: '/activity',
       },
+      {
+        component: CNavItem,
+        name: 'กิจกรรมที่เกี่ยวข้อง',
+        to: '/activity-opened',
+      },
     ],
   },
   {
@@ -210,6 +215,11 @@ const teacher = [
         name: 'รายชื่อกิจกรรม',
         to: '/activity',
       },
+      {
+        component: CNavItem,
+        name: 'กิจกรรมที่เกี่ยวข้อง',
+        to: '/activity-opened',
+      },
     ],
   },
   {
@@ -244,6 +254,11 @@ const person = [
         component: CNavItem,
         name: 'รายชื่อกิจกรรม',
         to: '/activity',
+      },
+      {
+        component: CNavItem,
+        name: 'กิจกรรมที่เกี่ยวข้อง',
+        to: '/activity-opened',
       },
     ],
   },

@@ -6,26 +6,26 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import GROBAL from "../../../GOBAL";
 
-const ActivityCompleted = () => {
+const ActivitOpened = () => {
   const { Search } = Input;
   const user = JSON.parse(window.localStorage.getItem("user"));
   const [activity, setActivity] = useState([]);
   const getData = async () => {
     try {
-      let response = await axios.post(
+      const response = await axios.post(
         `${GROBAL.BASE_SERVER.URL}activity/index.php`,
         {
-          action: "getActivityBySucceed",
-          activity_approve_status: "finish"
+          action: "getActivityByAssociated",
+          user_id: user.user_id,
         }
       );
       response.data.data.forEach((element, index) => {
         let date = element.DateRange.split(" ");
         let Y_start = date[0].split("-")[0];
-        let M_start = date[0].split("-")[1]-1;
+        let M_start = date[0].split("-")[1] - 1;
         let D_start = date[0].split("-")[2];
         let Y_end = date[1].split("-")[0];
-        let M_end = date[1].split("-")[1]-1;
+        let M_end = date[1].split("-")[1] - 1;
         let D_end = date[1].split("-")[2];
         const date_start = new Date(Y_start, M_start, D_start);
         const date_startth = date_start.toLocaleDateString("th-TH", {
@@ -44,11 +44,15 @@ const ActivityCompleted = () => {
       });
       if (response.data.require) {
         setActivity(response.data.data);
-      }
+      } 
+      // else {
+      //   console.log(response.data.message);
+      // }
     } catch (error) {
       console.log(error);
     }
   };
+
   const DeleteData = async (ac_id) => {
     Swal.fire({
       title: "ลบข้อมูล?",
@@ -61,13 +65,13 @@ const ActivityCompleted = () => {
       cancelButtonText: "ยกเลิก",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const resp = await axios.post(
+        const response = await axios.post(
           `${GROBAL.BASE_SERVER.URL}activity/delete/index.php`,
           {
             ac_id: ac_id,
           }
         );
-        if (resp.data.require) {
+        if (response.data.require) {
           Swal.fire({
             icon: "success",
             title: "สำเร็จ",
@@ -87,7 +91,48 @@ const ActivityCompleted = () => {
       }
     });
   };
-
+  const onSearch = async (value) => {
+    try {
+      let response = await axios.post(
+        `${GROBAL.BASE_SERVER.URL}activity/index.php`,
+        {
+          action: "getActivityByAssociated",
+          ac_name: value,
+        }
+      );
+      response.data.data.forEach((element, index) => {
+        let date = element.DateRange.split(" ");
+        let Y_start = date[0].split("-")[0];
+        let M_start = date[0].split("-")[1] - 1;
+        let D_start = date[0].split("-")[2];
+        let Y_end = date[1].split("-")[0];
+        let M_end = date[1].split("-")[1] - 1;
+        let D_end = date[1].split("-")[2];
+        const date_start = new Date(Y_start, M_start, D_start);
+        const date_startth = date_start.toLocaleDateString("th-TH", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+        const date_end = new Date(Y_end, M_end, D_end);
+        const date_endth = date_end.toLocaleDateString("th-TH", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+        element.date = date_startth + " ถึง " + date_endth;
+        element["index"] = index + 1;
+      });
+      if (response.data.require) {
+        setActivity(response.data.data);
+      } 
+      // else {
+      //   console.log(response.data.message);
+      // }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   //รายชื่อกิจกรรม
   const columns = [
     {
@@ -121,13 +166,24 @@ const ActivityCompleted = () => {
       render: (record) => {
         return (
           <Space size="middle">
-            <Link to={`/activity-completed-expose/${record.ac_id}`}>
+            <Link to={`/activity-detail/${record.ac_id}`}>
               <Button>
                 รายละเอียด
               </Button>
             </Link>
             <>
-              {user.user_type_id === "01" ? (
+              {user.user_type_id != "05" ? (
+                <>
+                  <Link to={`/activity-update/${record.ac_id}`}>
+                    <Button>
+                      แก้ไข
+                    </Button>
+                  </Link>
+                </>
+              ) : (<></>)}
+            </>
+            <>
+              {user.user_type_id != "05" ? (
                 <>
                   <Button type="danger" onClick={() => {
                     DeleteData(record.ac_id);
@@ -135,68 +191,19 @@ const ActivityCompleted = () => {
                     ลบ
                   </Button>
                 </>
-              ) : (
-                <></>
-              )}
+              ) : (<></>)}
             </>
           </Space>
         )
       }
     },
   ];
-
   useEffect(() => {
     getData();
-    // if (datas.length == 0) {
-    //   data.forEach((e, idx) => {
-    //     e.index = idx + 1;
-    //   });
-    //   setDatas(data);
-    // }
   }, []);
-  const onSearch = async (value) => {
-    try {
-      let response = await axios.post(
-        `${GROBAL.BASE_SERVER.URL}activity/index.php`,
-        {
-          action: "getActivityBySucceed",
-          ac_name: value,
-          activity_approve_status: "finish"
-        }
-      );
-      response.data.data.forEach((element, index) => {
-        let date = element.DateRange.split(" ");
-        let Y_start = date[0].split("-")[0];
-        let M_start = date[0].split("-")[1]-1;
-        let D_start = date[0].split("-")[2];
-        let Y_end = date[1].split("-")[0];
-        let M_end = date[1].split("-")[1]-1;
-        let D_end = date[1].split("-")[2];
-        const date_start = new Date(Y_start, M_start, D_start);
-        const date_startth = date_start.toLocaleDateString("th-TH", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        });
-        const date_end = new Date(Y_end, M_end, D_end);
-        const date_endth = date_end.toLocaleDateString("th-TH", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        });
-        element.date = date_startth + " ถึง " + date_endth;
-        element["index"] = index + 1;
-      });
-      if (response.data.require) {
-        setActivity(response.data.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <>
-      <Card title="ตรวจสอบหลักฐาน">
+      <Card title="กิจกรรมที่เข้าร่วม">
         <Row>
           <Col>
             <Search
@@ -208,7 +215,6 @@ const ActivityCompleted = () => {
             />
           </Col>
         </Row>
-        <br />
         <br />
         <Table
           style={{}}
@@ -222,4 +228,4 @@ const ActivityCompleted = () => {
   );
 };
 
-export default ActivityCompleted;
+export default ActivitOpened;

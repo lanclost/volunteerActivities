@@ -199,7 +199,7 @@ const ActivityCheckDetail = () => {
         return (
           <Space size="middle">
             <Link to={`/activity-check-evidence/${record.ac_id}/${record.user_id}`}>
-              <Button>
+              <Button type="primary">
                 หลักฐานเข้ากิจกรรม
               </Button>
             </Link>
