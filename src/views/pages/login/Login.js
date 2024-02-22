@@ -78,7 +78,7 @@ const Login = () => {
           }
         ).then((res) => {
           localStorage.setItem("user", JSON.stringify(res.data.data));
-          // console.log(JSON.parse(localStorage.getItem("user")));
+          console.log(JSON.parse(localStorage.getItem("user")));
           window.location.reload();
         });
       }
