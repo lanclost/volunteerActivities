@@ -124,7 +124,7 @@ const ActivityCheckEvidence = () => {
         }
       );
       if (response.data.require) {
-        setAccumulated(response.data.data[0]);
+        setAccumulated(response.data.data);
       }
     } catch (error) {
       console.log(error);
@@ -471,21 +471,24 @@ const ActivityCheckEvidence = () => {
           <>
             {user.user_type_id === "01" ? (
               <>
-                {accumulated.result_accumulated === 'allow' ? (
-                  <Col span={2}>
-                    <Button disabled>
-                      อนุมัติ
-                    </Button>
-                  </Col>
-                ) : (
+                {evidenceactivity[0] !== undefined ? (
                   <>
-                    <Col span={2}>
-                      <Button onClick={(e) => handleSubmit(e)}>
-                        อนุมัติ
-                      </Button>
-                    </Col>
+                    {accumulated.length > 0 ? (
+                      <Col span={2}>
+                        <Button disabled>
+                          ตรวจสอบหลักฐานแล้ว
+                        </Button>
+                      </Col>
+                    ) : (<></>)}
+                    {accumulated.length === 0 ? (
+                      <Col span={2}>
+                        <Button onClick={(e) => handleSubmit(e)}>
+                          รอการตรวจสอบหลักฐาน
+                        </Button>
+                      </Col>
+                    ) : (<></>)}
                   </>
-                )}
+                ) : (<></>)}
               </>
             ) : (<></>)}
           </>

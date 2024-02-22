@@ -133,6 +133,44 @@ const ActivityCheckDetail = () => {
     getData()
     getActivityList()
   }, [])
+  const DeleteData = async (activity_list_id) => {
+    Swal.fire({
+      title: "ลบข้อมูล?",
+      text: "คุณยืนยันที่จะลบข้อมูล!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "ตกลง",
+      cancelButtonText: "ยกเลิก",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const response = await axios.post(
+          `${GROBAL.BASE_SERVER.URL}activity-list/delete/index.php`,
+          {
+            activity_list_id: activity_list_id,
+          }
+        );
+        if (response.data.require) {
+          Swal.fire({
+            icon: "success",
+            title: "สำเร็จ",
+            text: "ลบสำเร็จ",
+            timer: 2000,
+          }).then(() => {
+            getActivityList();
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "ผิดพลาด",
+            text: "ผิดพลาด",
+            timer: 2000,
+          });
+        }
+      }
+    });
+  };
   const columns = [
     {
       title: "รหัสนักศึกษา",
@@ -165,7 +203,9 @@ const ActivityCheckDetail = () => {
                 หลักฐานเข้ากิจกรรม
               </Button>
             </Link>
-            <Button>
+            <Button type="danger" onClick={() => {
+              DeleteData(record.activity_list_id)
+            }}>
               ลบ
             </Button>
           </Space>
@@ -305,7 +345,7 @@ const ActivityCheckDetail = () => {
           <Col span={2}></Col>
           <Col>
             <Button onClick={(e) => handleSubmit(e)}>
-              สรุปผลกิจกรรม
+              สรุปผลกิจกรรมเสร็จสิ้น
             </Button>
           </Col>
         </Row>

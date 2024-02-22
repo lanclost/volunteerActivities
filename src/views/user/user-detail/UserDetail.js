@@ -238,9 +238,7 @@ const UserDetail = () => {
                       />
                     </Col>
                   </>
-                ) : (
-                  <></>
-                )}
+                ) : (<></>)}
               </>
               <Col span={2}></Col>
               <>
@@ -255,9 +253,7 @@ const UserDetail = () => {
                       />
                     </Col>
                   </>
-                ) : (
-                  <></>
-                )}
+                ) : (<></>)}
               </>
             </Row>
             <br />
@@ -284,9 +280,7 @@ const UserDetail = () => {
                     </Col>
                   </Row>
                 </>
-              ) : (
-                <></>
-              )}
+              ) : (<></>)}
             </>
           </Col>
         </Row>
@@ -327,9 +321,7 @@ const UserDetail = () => {
               <br />
               <Table columns={columns} dataSource={accumulatedList} rowKey="accumulated_id" />
             </>
-          ) : (
-            <></>
-          )}
+          ) : (<></>)}
         </>
         {/* <Row justify="center">
           <Col span={2}>
@@ -379,9 +371,7 @@ const UserDetail = () => {
                     </Button>
                   </Link>
                 </Col>
-              ) : (
-                <></>
-              )}
+              ) : (<></>)}
             </>
           </Col>
           <Col span={1}></Col>
@@ -405,10 +395,7 @@ const UserDetail = () => {
                         </Button>
                       </Col>
                     </>
-                  ) : (
-                    <>
-                    </>
-                  )}
+                  ) : (<></>)}
                 </>
                 <>
                   {users.user_id ? (
@@ -423,21 +410,12 @@ const UserDetail = () => {
                             </Link>
                           </Col>
                         </>
-                      ) : (
-                        <>
-                        </>
-                      )}
+                      ) : (<></>)}
                     </>
-                  ) : (
-                    <>
-                    </>
-                  )}
+                  ) : (<></>)}
                 </>
               </>
-            ) : (
-              <>
-              </>
-            )}
+            ) : (<></>)}
           </>
         </Row>
         <br />

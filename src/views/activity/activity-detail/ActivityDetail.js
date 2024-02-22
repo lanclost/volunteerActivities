@@ -133,7 +133,7 @@ const ActivityDetail = () => {
       Swal.fire({
         icon: "warning",
         title: "ผิดพลาด",
-        text: "ไม่สามารถเข้าร่วมกิจกรรมนี้ได้",
+        text: "จำนวนผู้เข้าร่วมกิจกรรมเต็ม",
         timer: 3000,
       });
       return false
