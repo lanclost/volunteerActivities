@@ -25,7 +25,7 @@ class App extends Component {
       <HashRouter>
         <Suspense fallback={loading}>
           <Routes>
-            <Route exact path="/register" name="Register Page" element={<Register />} />
+            <Route exact path="/register/:id/:id2" name="Register Page" element={<Register />} />
             <Route exact path="/registertype" name="RegisterType Page" element={<RegisterType />} />
             <Route exact path="/repassword" name="Repassword Page" element={<Repassword />} />
             <Route exact path="/404" name="Page 404" element={<Page404 />} />

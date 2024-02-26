@@ -39,6 +39,10 @@ const UserInsert = () => {
         image: "",
         user_approve_status: "allow",
     });
+    const [prefix, setPrefix] = useState([]);
+    const [faculty, setFaculty] = useState([]);
+    const [department, setDepartment] = useState([]);
+    const [usertype, setUserType] = useState([]);
     const getDataUserLast = async () => {
         const date = new Date();
         try {
@@ -56,51 +60,11 @@ const UserInsert = () => {
         }
     }
     const checkSubmit = () => {
-        if (userS.user_type_id === "") {
+        if (userS.username === "") {
             Swal.fire({
                 icon: "warning",
                 title: "ผิดพลาด",
-                text: "โปรดระบุข้อมูล ระดับผู้ใช้",
-                timer: 2000,
-            });
-            return false;
-        } else if (userS.prefix_id === "") {
-            Swal.fire({
-                icon: "warning",
-                title: "ผิดพลาด",
-                text: "โปรดระบุข้อมูล คำนำหน้า",
-                timer: 2000,
-            });
-            return false;
-        } else if (userS.username === "") {
-            Swal.fire({
-                icon: "warning",
-                title: "ผิดพลาด",
-                text: "โปรดระบุข้อมูล ผู้ใช้",
-                timer: 2000,
-            });
-            return false;
-        } else if (userS.telephone === "") {
-            Swal.fire({
-                icon: "warning",
-                title: "ผิดพลาด",
-                text: "โปรดระบุข้อมูล เบอร์โทร",
-                timer: 2000,
-            });
-            return false;
-        } else if (userS.first_name === "") {
-            Swal.fire({
-                icon: "warning",
-                title: "ผิดพลาด",
-                text: "โปรดระบุข้อมูล ชื่อ",
-                timer: 2000,
-            });
-            return false;
-        } else if (userS.last_name === "") {
-            Swal.fire({
-                icon: "warning",
-                title: "ผิดพลาด",
-                text: "โปรดระบุข้อมูล นามสกุล",
+                text: "โปรดระบุข้อมูลผู้ใช้",
                 timer: 2000,
             });
             return false;
@@ -108,7 +72,7 @@ const UserInsert = () => {
             Swal.fire({
                 icon: "warning",
                 title: "ผิดพลาด",
-                text: "โปรดระบุข้อมูล รหัสผ่าน",
+                text: "โปรดระบุข้อมูลรหัสผ่าน",
                 timer: 2000,
             });
             return false;
@@ -116,7 +80,7 @@ const UserInsert = () => {
             Swal.fire({
                 icon: "warning",
                 title: "ผิดพลาด",
-                text: "โปรดระบุข้อมูล ยืนยันรหัสผ่าน",
+                text: "โปรดระบุข้อมูลยืนยันรหัสผ่าน",
                 timer: 2000,
             });
             return false;
@@ -124,7 +88,55 @@ const UserInsert = () => {
             Swal.fire({
                 icon: "warning",
                 title: "ผิดพลาด",
-                text: "โปรดระบุข้อมูล รหัสไม่ตรงกัน",
+                text: "โปรดระบุข้อมูลรหัสไม่ตรงกัน",
+                timer: 2000,
+            });
+            return false;
+        } else if (userS.first_name === "") {
+            Swal.fire({
+                icon: "warning",
+                title: "ผิดพลาด",
+                text: "โปรดระบุข้อมูลชื่อ",
+                timer: 2000,
+            });
+            return false;
+        } else if (userS.last_name === "") {
+            Swal.fire({
+                icon: "warning",
+                title: "ผิดพลาด",
+                text: "โปรดระบุข้อมูลนามสกุล",
+                timer: 2000,
+            });
+            return false;
+        } else if (userS.prefix_id === "") {
+            Swal.fire({
+                icon: "warning",
+                title: "ผิดพลาด",
+                text: "โปรดระบุข้อมูลคำนำหน้า",
+                timer: 2000,
+            });
+            return false;
+        } else if (userS.telephone === "") {
+            Swal.fire({
+                icon: "warning",
+                title: "ผิดพลาด",
+                text: "โปรดระบุข้อมูลเบอร์โทร",
+                timer: 2000,
+            });
+            return false;
+        } else if (userS.faculty_id === "") {
+            Swal.fire({
+                icon: "warning",
+                title: "ผิดพลาด",
+                text: "โปรดระบุข้อมูลคณะ",
+                timer: 2000,
+            });
+            return false;
+        } else if (userS.department_id === "") {
+            Swal.fire({
+                icon: "warning",
+                title: "ผิดพลาด",
+                text: "โปรดระบุข้อมูลสาขา",
                 timer: 2000,
             });
             return false;
@@ -140,18 +152,18 @@ const UserInsert = () => {
                 username: userS.username
             }
         );
-        if (response.data.length > 0) {
+        if (response.data.require) {
             Swal.fire({
                 icon: "warning",
                 title: "ผิดพลาด",
-                text: "โปรดระบุข้อมูลผู้ใช้ใหม่",
-                timer: 2000,
+                text: "มีข้อมูลชื่อผู้ใช้ซ้ำ",
+                timer: 3000,
             });
             return false
         } else {
             return true
         }
-    };
+    }
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -183,7 +195,7 @@ const UserInsert = () => {
                         text: "บันทึกสำเร็จ",
                         timer: 2000,
                     }).then(() => {
-                        navigate("/user");
+                        navigate(0);
                     });
                 }
             }
@@ -191,11 +203,7 @@ const UserInsert = () => {
             console.log(error);
         }
     };
-    const [prefix, setPrefix] = useState([]);
-    const [faculty, setFaculty] = useState([]);
-    const [department, setDepartment] = useState([]);
-    const [userType, setUserType] = useState([]);
-    const getUserType = async () => {
+    const getDataUserType = async () => {
         try {
             let response = await axios.post(
                 `${GROBAL.BASE_SERVER.URL}user-type/index.php`,
@@ -205,10 +213,13 @@ const UserInsert = () => {
             )
             if (response.data.require) {
                 setUserType(response.data.data);
-            } 
-            // else {
-            //     console.log(response.data.message);
-            // }
+            } else {
+                Swal.fire({
+                    title: 'เกิดความผิดพลาด',
+                    text: response.data.message,
+                    timer: 2000
+                })
+            }
         } catch (error) {
             console.log(error);
         }
@@ -286,15 +297,17 @@ const UserInsert = () => {
         value: prefixdatas.prefix_id,
         label: prefixdatas.prefix_name,
     }));
-    const DataUserType = userType.map((usertypedatas) => ({
+    const DataUserType = usertype.map((usertypedatas) => ({
         value: usertypedatas.user_type_id,
         label: usertypedatas.type_name,
     }));
     useEffect(() => {
+        getDataPrefix();
+        getDataUserType()
+    }, []);
+    useEffect(() => {
         getDataFaculty();
         getDataDepartment();
-        getDataPrefix();
-        getUserType()
         getDataUserLast()
     }, []);
     const handleDatas = (datas) => {
@@ -315,14 +328,14 @@ const UserInsert = () => {
                                 <br />
                                 <Select
                                     name="user_type_id"
-                                    placeholder="เลือก"
+                                    placeholder="ระดับผู้ใช้"
                                     size="large"
                                     onChange={(e) => handleSelect("user_type_id", e)}
-                                    required
-                                    options={DataUserType}
                                     style={{
                                         width: 400,
                                     }}
+                                    required
+                                    options={DataUserType}
                                 />
                             </Col>
                             <Col span={2}></Col>

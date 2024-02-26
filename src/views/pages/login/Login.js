@@ -58,7 +58,7 @@ const Login = () => {
       Swal.fire({
         icon: "warning",
         title: "ผิดพลาด",
-        text: "โปรดระบุข้อมูล ผู้ใช้ใหม่",
+        text: "ผู้ใช้ยังไม่ได้รับการยืนยัน",
         timer: 2000,
       });
       return false
@@ -86,8 +86,6 @@ const Login = () => {
       localStorage.clear()
     }
   };
-
-
   return (
     <div>
       <div className="logincontainer">
@@ -173,16 +171,26 @@ const Login = () => {
                 <label onClick={showModal}>สมัครสมาชิก!</label>
               </Col>
             </Row>
-            <Modal title="สมัครสมาชิก!" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            {<Modal
+              title="สมัครสมาชิก!"
+              open={isModalOpen}
+              onOk={handleOk}
+              onCancel={handleCancel}
+              okText='ตกลง'
+              cancelText='ยกเลิก'
+            >
               <Link to={"/registertype"}>
-                <Button type="primary">อาจารย์ เจ้าหน้าที่ และบุคคลทั่วไป</Button>
+                <Button type="summit">อาจารย์/เจ้าหน้าที่ทั่วไป</Button>
               </Link>
-              <br />
-              <br />
-              <Link to={"/register"}>
+              &nbsp; &nbsp;
+              <Link to={"/register/04/wait"}>
+                <Button>บุคคลภายนอก</Button>
+              </Link>
+              &nbsp; &nbsp;
+              <Link to={"/register/05/allow"}>
                 <Button>นักศึกษา</Button>
               </Link>
-            </Modal>
+            </Modal>}
           </Form>
         </Card>
       </div>

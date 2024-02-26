@@ -10,7 +10,7 @@ import {
   Space,
   Form,
 } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import GROBAL from "../../../GOBAL";
@@ -26,6 +26,7 @@ import {
 } from "react-icons/ai";
 
 const Register = () => {
+  const routeParams = useParams();
   const navigate = useNavigate();
   const [user, setUser] = useState({
     insert_user: "",
@@ -41,18 +42,16 @@ const Register = () => {
     prefix_id: "",
     department_id: "",
     faculty_id: "",
-    user_type_id: "05",
+    user_type_id: routeParams.id,
     image: "",
-    user_approve_status: "allow",
+    user_approve_status: routeParams.id2,
   });
-  
-  
   const getDataUserLast = async () => {
     const date = new Date();
     try {
       const response = await axios.post(
         `${GROBAL.BASE_SERVER.URL}user/index.php`,
-        {  
+        {
           action: "getUserLastID",
           code: "USID-U" + date.getFullYear(),
           digit: 3,
@@ -63,7 +62,77 @@ const Register = () => {
       console.log(error);
     }
   }
-  const checkSubmit = () => {
+
+  const checkSubmitPerson = () => {
+    if (user.username === "") {
+      Swal.fire({
+        icon: "warning",
+        title: "ผิดพลาด",
+        text: "โปรดระบุข้อมูลผู้ใช้",
+        timer: 2000,
+      });
+      return false;
+    } else if (user.password === "") {
+      Swal.fire({
+        icon: "warning",
+        title: "ผิดพลาด",
+        text: "โปรดระบุข้อมูลรหัสผ่าน",
+        timer: 2000,
+      });
+      return false;
+    } else if (user.confirm_password === "") {
+      Swal.fire({
+        icon: "warning",
+        title: "ผิดพลาด",
+        text: "โปรดระบุข้อมูลยืนยันรหัสผ่าน",
+        timer: 2000,
+      });
+      return false;
+    } else if (user.password !== user.confirm_password) {
+      Swal.fire({
+        icon: "warning",
+        title: "ผิดพลาด",
+        text: "โปรดระบุข้อมูลรหัสไม่ตรงกัน",
+        timer: 2000,
+      });
+      return false;
+    } else if (user.first_name === "") {
+      Swal.fire({
+        icon: "warning",
+        title: "ผิดพลาด",
+        text: "โปรดระบุข้อมูลชื่อ",
+        timer: 2000,
+      });
+      return false;
+    } else if (user.last_name === "") {
+      Swal.fire({
+        icon: "warning",
+        title: "ผิดพลาด",
+        text: "โปรดระบุข้อมูลนามสกุล",
+        timer: 2000,
+      });
+      return false;
+    } else if (user.prefix_id === "") {
+      Swal.fire({
+        icon: "warning",
+        title: "ผิดพลาด",
+        text: "โปรดระบุข้อมูลคำนำหน้า",
+        timer: 2000,
+      });
+      return false;
+    } else if (user.telephone === "") {
+      Swal.fire({
+        icon: "warning",
+        title: "ผิดพลาด",
+        text: "โปรดระบุข้อมูลเบอร์โทร",
+        timer: 2000,
+      });
+      return false;
+    } else {
+      return true;
+    }
+  };
+  const checkSubmitStudent = () => {
     if (user.username === "") {
       Swal.fire({
         icon: "warning",
@@ -176,18 +245,18 @@ const Register = () => {
       Swal.fire({
         icon: "warning",
         title: "ผิดพลาด",
-        text: "โปรดระบุข้อมูล ผู้ใช้ใหม่",
-        timer: 2000,
+        text: "มีข้อมูลชื่อผู้ใช้ซ้ำ",
+        timer: 3000,
       });
       return false
     } else {
       return true
     }
   }
-  const handleSubmit = async (event) => {
+  const SubmitStudent = async (event) => {
     event.preventDefault();
     try {
-      if (checkSubmit() && await checkusername()) {
+      if (checkSubmitStudent() && await checkusername()) {
         const res = await axios.post(
           `${GROBAL.BASE_SERVER.URL}user/insert/index.php`,
           {
@@ -215,7 +284,46 @@ const Register = () => {
             text: "บันทึกสำเร็จ",
             timer: 2000,
           }).then(() => {
-            navigate("/user");
+            navigate(0);
+          });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const SubmitPerson = async (event) => {
+    event.preventDefault();
+    try {
+      if (checkSubmitPerson() && await checkusername()) {
+        const res = await axios.post(
+          `${GROBAL.BASE_SERVER.URL}user/insert/index.php`,
+          {
+            insert_user: user.insert_user,
+            user_id: user.user_id,
+            username: user.username,
+            student_id: user.student_id,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            yearclass: user.yearclass,
+            telephone: user.telephone,
+            password: user.password,
+            prefix_id: user.prefix_id,
+            department_id: user.department_id,
+            faculty_id: user.faculty_id,
+            user_type_id: user.user_type_id,
+            image: user.image,
+            user_approve_status: user.user_approve_status,
+          }
+        );
+        if (res.data.require) {
+          Swal.fire({
+            icon: "success",
+            title: "สำเร็จ",
+            text: "บันทึกสำเร็จ",
+            timer: 2000,
+          }).then(() => {
+            navigate(0);
           });
         }
       }
@@ -224,6 +332,7 @@ const Register = () => {
     }
   };
   const handleDatas = (datas) => {
+    console.log(datas);
     setUser({ ...user, [datas.target.name]: datas.target.value });
   };
   const handleSelect = (key, data) => {
@@ -311,20 +420,86 @@ const Register = () => {
     getDataPrefix();
     getDataUserLast()
   }, []);
+  const SearchSelectFaculty = (value) => {
+    console.log("search:", value);
+  };
+  const SearchSelectDepartment = (value) => {
+    console.log("search:", value);
+  };
 
   return (
     <div>
       <br />
       <Row justify="center">
         <Col span={10}>
-          <Card>
+          <Card className="cardlogin">
             <Form id="form" onSubmit={(e) => handleSubmit(e)}>
               <Row>
-                <Col span={6}></Col>
+                <Col span={7}></Col>
                 <Col>
                   <h1>ลงทะเบียน</h1>
-                  รายละเอียดนักศึกษา
+                  <>
+                    {routeParams.id === "05" ? (
+                      <>
+                        <h6>รายละเอียดนักศึกษา</h6>
+                      </>
+                    ):(<></>)}
+                    {routeParams.id === "04" ? (
+                      <>
+                        <h6>รายละเอียดบุคคลภายนอก</h6>
+                      </>
+                    ):(<></>)}
+                  </>
                 </Col>
+              </Row>
+              <br />
+              <Row>
+                <Col span={5}>
+                  <Select
+                    name="prefix_id"
+                    placeholder="คำนำหน้า"
+                    size="large"
+                    onChange={(e) => handleSelect("prefix_id", e)}
+                    style={{
+                      width: 120,
+                    }}
+                    required
+                    options={DataPrefix}
+                  />
+                </Col>
+                <Col span={1}></Col>
+                <>
+                  {routeParams.id === "05" ? (
+                    <>
+                      <Col span={5}>
+                        <Input
+                          name="yearclass"
+                          type="number"
+                          min={1}
+                          max={1}
+                          size="large"
+                          style={{
+                            width: 120,
+                          }}
+                          placeholder="ชั้นปี"
+                          onChange={(e) => handleDatas(e)}
+                          required
+                        />
+                      </Col>
+                      <Col span={2}></Col>
+                      <Col span={11}>
+                        <Input
+                          name="student_id"
+                          size="large"
+                          placeholder="รหัสนักศึกษา"
+                          prefix={<AiOutlineKey className="iconuser" />}
+                          required
+                          onChange={(e) => handleDatas(e)}
+                        />
+                      </Col>
+                    </>
+                  ) : (<></>)}
+                </>
               </Row>
               <br />
               <Row>
@@ -343,10 +518,10 @@ const Register = () => {
                 <Col span={1}></Col>
                 <Col span={11}>
                   <Input
-                    name="student_id"
+                    name="telephone"
                     size="large"
-                    placeholder="รหัสนักศึกษา"
-                    prefix={<AiOutlineKey className="iconuser" />}
+                    placeholder="เบอร์โทร"
+                    prefix={<AiOutlinePhone className="iconuser" />}
                     required
                     onChange={(e) => handleDatas(e)}
                   />
@@ -404,95 +579,60 @@ const Register = () => {
                   />
                 </Col>
               </Row>
-              <br />
-              <Row>
-                <Col span={5}>
-                  <Select
-                    name="prefix_id"
-                    placeholder="คำนำหน้า"
-                    size="large"
-                    onChange={(e) => handleSelect("prefix_id", e)}
-                    style={{
-                      width: 120,
-                    }}
-                    required
-                    options={DataPrefix}
-                  />
-                </Col>
-                <Col span={1}></Col>
-                <Col span={5}>
-                  <Input
-                    name="yearclass"
-                    type="number"
-                    min={1}
-                    max={1}
-                    size="large"
-                    style={{
-                      width: 120,
-                    }}
-                    placeholder="ชั้นปี"
-                    onChange={(e) => handleDatas(e)}
-                    required
-                  />
-                </Col>
-                <Col span={2}></Col>
-                <Col span={11}>
-                  <Input
-                    name="telephone"
-                    size="large"
-                    placeholder="เบอร์โทร"
-                    prefix={<AiOutlinePhone className="iconuser" />}
-                    required
-                    onChange={(e) => handleDatas(e)}
-                  />
-                </Col>
-              </Row>
-              <br />
-              <Row>
-                <Col span={3}></Col>
-                <Col>
-                  <Select
-                    showSearch
-                    name="faculty_id"
-                    placeholder="คณะ"
-                    optionFilterProp="children"
-                    size="large"
-                    onChange={(e) => handleSelect("faculty_id", e)}
-                    filterOption={(input, option) =>
-                      (option?.label ?? "")
-                        .toLowerCase()
-                        .includes(input.toLowerCase())
-                    }
-                    style={{
-                      width: 400,
-                    }}
-                    options={DataFaculty}
-                  />
-                </Col>
-              </Row>
-              <br />
-              <Row>
-                <Col span={3}></Col>
-                <Col>
-                  <Select
-                    showSearch
-                    name="department_id"
-                    placeholder="สาขา"
-                    optionFilterProp="children"
-                    size="large"
-                    onChange={(e) => handleSelect("department_id", e)}
-                    filterOption={(input, option) =>
-                      (option?.label ?? "")
-                        .toLowerCase()
-                        .includes(input.toLowerCase())
-                    }
-                    style={{
-                      width: 400,
-                    }}
-                    options={DataDepartment}
-                  />
-                </Col>
-              </Row>
+              <>
+                {routeParams.id === "05" ? (
+                  <>
+                    <br></br>
+                    <Row>
+                      <Col span={3}></Col>
+                      <Col>
+                        <Select
+                          showSearch
+                          name="faculty_id"
+                          placeholder="คณะ"
+                          optionFilterProp="children"
+                          onSearch={SearchSelectFaculty}
+                          size="large"
+                          onChange={(e) => handleSelect("faculty_id", e)}
+                          filterOption={(input, option) =>
+                            (option?.label ?? "")
+                              .toLowerCase()
+                              .includes(input.toLowerCase())
+                          }
+                          style={{
+                            width: 400,
+                          }}
+                          options={DataFaculty}
+                        />
+                      </Col>
+                    </Row>
+                    <br></br>
+                    <Row>
+                      <Col span={3}></Col>
+                      <Col>
+                        <Select
+                          showSearch
+                          name="department_id"
+                          placeholder="สาขา"
+                          optionFilterProp="children"
+                          size="large"
+                          onChange={(e) => handleSelect("department_id", e)}
+                          onSearch={SearchSelectDepartment}
+                          filterOption={(input, option) =>
+                            (option?.label ?? "")
+                              .toLowerCase()
+                              .includes(input.toLowerCase())
+                          }
+                          style={{
+                            width: 400,
+                          }}
+                          options={DataDepartment}
+                        />
+                      </Col>
+                    </Row>
+                  </>
+                ) : (<></>)}
+              </>
               <br />
               <Row justify="center">
                 <Col>
@@ -506,15 +646,34 @@ const Register = () => {
                   </Link>
                 </Col>
                 <Col span={2}></Col>
-                <Col>
-                  <Button
-                    type="submit"
-                    size="large"
-                    onClick={(e) => handleSubmit(e)}
-                  >
-                    ยืนยันสมัคร
-                  </Button>
-                </Col>
+                <>
+                  {routeParams.id === "05" ? (
+                    <>
+                      <Col>
+                        <Button
+                          type="submit"
+                          size="large"
+                          onClick={(e) => SubmitStudent(e)}
+                        >
+                          ยืนยันสมัคร
+                        </Button>
+                      </Col>
+                    </>
+                  ) : (<></>)}
+                  {routeParams.id === "04" ? (
+                    <>
+                      <Col>
+                        <Button
+                          type="submit"
+                          size="large"
+                          onClick={(e) => SubmitPerson(e)}
+                        >
+                          ยืนยันสมัคร
+                        </Button>
+                      </Col>
+                    </>
+                  ) : (<></>)}
+                </>
               </Row>
             </Form>
           </Card>

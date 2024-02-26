@@ -13,6 +13,8 @@ import {
   TimePicker,
   Upload,
   InputNumber,
+  Checkbox,
+  Form,
 } from "antd";
 import {
   AiOutlineUser,
@@ -98,25 +100,27 @@ const Repassword = () => {
   const handleDatas = (datas) => {
     setPassword({ ...password, [datas.target.name]: datas.target.value });
   };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div>
-      <div>
-      <br />
-        <Card >
-          <Row justify="center">
-            <Col span={6}></Col>
+      <div  className="logincontainer">
+        <Card className="cardlogin">
+          <Row>          
+            <Col span={7}></Col>
             <Col>
               <h4>รีเซ็ตรหัสผ่าน</h4>
             </Col>
-            <Col span={6}></Col>
           </Row>
           <br />
           <Row justify="center">
-            <Col span={16}>
+            <Col span={18}>
               <Input
+                size="large"
                 name="username"
                 placeholder="ชื่อผู้ใช้"
-                onChange={(e)=>handleDatas(e)}
+                onChange={(e) => handleDatas(e)}
                 prefix={<AiOutlineUser className="iconuser" />}
                 required
               />
@@ -124,12 +128,13 @@ const Repassword = () => {
           </Row>
           <br />
           <Row justify="center">
-            <Col span={16}>
+            <Col span={18}>
               <Input
                 type="password"
+                size="large"
                 name="password"
                 placeholder="รหัสผ่านใหม่"
-                onChange={(e)=>handleDatas(e)}
+                onChange={(e) => handleDatas(e)}
                 prefix={<AiOutlineUnlock className="iconuser" />}
                 required
               />
@@ -137,12 +142,13 @@ const Repassword = () => {
           </Row>
           <br />
           <Row justify="center">
-            <Col span={16}>
+            <Col span={18}>
               <Input
                 type="password"
+                size="large"
                 name="confirm_password"
                 placeholder="ยืนยันรหัสผ่าน"
-                onChange={(e)=>handleDatas(e)}
+                onChange={(e) => handleDatas(e)}
                 prefix={<AiOutlineLock className="iconuser" />}
                 required
               />
@@ -151,16 +157,17 @@ const Repassword = () => {
           <br />
           <Row justify="center">
             <Col span={8}>
-              <Link to={"/Login"}>
-                <Button>
+              <Link to={"/login"}>
+                <Button size="large" >
                   ย้อนกลับ
                 </Button>
               </Link>
             </Col>
-            <Col span={2}></Col>
             <Col span={8}>
               <Button
                 type="submit"
+                size="large"
+                block
                 onClick={(e) => handleSubmit(e)}
               >
                 บันทึก
