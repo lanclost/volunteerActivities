@@ -100,9 +100,6 @@ const Repassword = () => {
   const handleDatas = (datas) => {
     setPassword({ ...password, [datas.target.name]: datas.target.value });
   };
-  useEffect(() => {
-    getData();
-  }, []);
   return (
     <div>
       <div  className="logincontainer">
