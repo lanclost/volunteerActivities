@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/volunteerActivities/static/css/main.4514c9b1.css",
-    "main.js": "/volunteerActivities/static/js/main.c0c8a210.js",
+    "main.js": "/volunteerActivities/static/js/main.64d6f0bc.js",
     "static/css/523.9fbce0e0.chunk.css": "/volunteerActivities/static/css/523.9fbce0e0.chunk.css",
     "static/js/523.a071fd83.chunk.js": "/volunteerActivities/static/js/523.a071fd83.chunk.js",
     "static/js/5520.0bb16d5b.chunk.js": "/volunteerActivities/static/js/5520.0bb16d5b.chunk.js",
     "static/js/4009.b3e18ec3.chunk.js": "/volunteerActivities/static/js/4009.b3e18ec3.chunk.js",
     "static/js/7254.484dd370.chunk.js": "/volunteerActivities/static/js/7254.484dd370.chunk.js",
-    "static/js/9010.8472b028.chunk.js": "/volunteerActivities/static/js/9010.8472b028.chunk.js",
+    "static/js/9010.a88fdc15.chunk.js": "/volunteerActivities/static/js/9010.a88fdc15.chunk.js",
     "static/js/3001.03a2168a.chunk.js": "/volunteerActivities/static/js/3001.03a2168a.chunk.js",
     "static/js/6188.b752bd49.chunk.js": "/volunteerActivities/static/js/6188.b752bd49.chunk.js",
     "static/js/787.14675f11.chunk.js": "/volunteerActivities/static/js/787.14675f11.chunk.js",
@@ -61,13 +61,13 @@
     "static/media/8.jpg": "/volunteerActivities/static/media/8.35ee8919ea545620a475.jpg",
     "index.html": "/volunteerActivities/index.html",
     "main.4514c9b1.css.map": "/volunteerActivities/static/css/main.4514c9b1.css.map",
-    "main.c0c8a210.js.map": "/volunteerActivities/static/js/main.c0c8a210.js.map",
+    "main.64d6f0bc.js.map": "/volunteerActivities/static/js/main.64d6f0bc.js.map",
     "523.9fbce0e0.chunk.css.map": "/volunteerActivities/static/css/523.9fbce0e0.chunk.css.map",
     "523.a071fd83.chunk.js.map": "/volunteerActivities/static/js/523.a071fd83.chunk.js.map",
     "5520.0bb16d5b.chunk.js.map": "/volunteerActivities/static/js/5520.0bb16d5b.chunk.js.map",
     "4009.b3e18ec3.chunk.js.map": "/volunteerActivities/static/js/4009.b3e18ec3.chunk.js.map",
     "7254.484dd370.chunk.js.map": "/volunteerActivities/static/js/7254.484dd370.chunk.js.map",
-    "9010.8472b028.chunk.js.map": "/volunteerActivities/static/js/9010.8472b028.chunk.js.map",
+    "9010.a88fdc15.chunk.js.map": "/volunteerActivities/static/js/9010.a88fdc15.chunk.js.map",
     "3001.03a2168a.chunk.js.map": "/volunteerActivities/static/js/3001.03a2168a.chunk.js.map",
     "6188.b752bd49.chunk.js.map": "/volunteerActivities/static/js/6188.b752bd49.chunk.js.map",
     "787.14675f11.chunk.js.map": "/volunteerActivities/static/js/787.14675f11.chunk.js.map",
@@ -120,6 +120,6 @@
   },
   "entrypoints": [
     "static/css/main.4514c9b1.css",
-    "static/js/main.c0c8a210.js"
+    "static/js/main.64d6f0bc.js"
   ]
 }
