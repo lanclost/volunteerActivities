@@ -431,11 +431,10 @@ const Register = () => {
     <div>
       <br />
       <Row justify="center">
-        <Col span={10}>
+        <Col xs={24} sm={22} md={20} lg={18} xl={16} xxl={14}>
           <Card className="cardlogin">
             <Form id="form" onSubmit={(e) => handleSubmit(e)}>
-              <Row>
-                <Col span={7}></Col>
+              <Row justify="center">
                 <Col>
                   <h1>ลงทะเบียน</h1>
                   <>
@@ -443,52 +442,51 @@ const Register = () => {
                       <>
                         <h6>รายละเอียดนักศึกษา</h6>
                       </>
-                    ):(<></>)}
+                    ) : (<></>)}
                     {routeParams.id === "04" ? (
                       <>
                         <h6>รายละเอียดบุคคลภายนอก</h6>
                       </>
-                    ):(<></>)}
+                    ) : (<></>)}
                   </>
                 </Col>
               </Row>
               <br />
-              <Row>
-                <Col span={5}>
-                  <Select
-                    name="prefix_id"
-                    placeholder="คำนำหน้า"
-                    size="large"
-                    onChange={(e) => handleSelect("prefix_id", e)}
-                    style={{
-                      width: 120,
-                    }}
-                    required
-                    options={DataPrefix}
-                  />
+              <Row className="columns">
+                <Col className="columnregister2">
+                  <Row className="columnregister">
+                    <Col>
+                      <Select
+                        className="inputregister2"
+                        name="prefix_id"
+                        placeholder="คำนำหน้า"
+                        size="large"
+                        onChange={(e) => handleSelect("prefix_id", e)}
+                        required
+                        options={DataPrefix}
+                      />
+                    </Col>
+                    <Col>
+                      <Input
+                        className="inputregister2"
+                        name="yearclass"
+                        type="number"
+                        min={1}
+                        max={1}
+                        size="large"
+                        placeholder="ชั้นปี"
+                        onChange={(e) => handleDatas(e)}
+                        required
+                      />
+                    </Col>
+                  </Row>
                 </Col>
-                <Col span={1}></Col>
                 <>
                   {routeParams.id === "05" ? (
                     <>
-                      <Col span={5}>
+                      <Col>
                         <Input
-                          name="yearclass"
-                          type="number"
-                          min={1}
-                          max={1}
-                          size="large"
-                          style={{
-                            width: 120,
-                          }}
-                          placeholder="ชั้นปี"
-                          onChange={(e) => handleDatas(e)}
-                          required
-                        />
-                      </Col>
-                      <Col span={2}></Col>
-                      <Col span={11}>
-                        <Input
+                          className="inputregister"
                           name="student_id"
                           size="large"
                           placeholder="รหัสนักศึกษา"
@@ -501,10 +499,10 @@ const Register = () => {
                   ) : (<></>)}
                 </>
               </Row>
-              <br />
-              <Row>
-                <Col span={12}>
+              <Row className="columns">
+                <Col>
                   <Input
+                    className="inputregister"
                     name="username"
                     size="large"
                     // autoComplete="username"
@@ -514,10 +512,9 @@ const Register = () => {
                     required
                   />
                 </Col>
-                <Col></Col>
-                <Col span={1}></Col>
-                <Col span={11}>
+                <Col>
                   <Input
+                    className="inputregister"
                     name="telephone"
                     size="large"
                     placeholder="เบอร์โทร"
@@ -527,10 +524,10 @@ const Register = () => {
                   />
                 </Col>
               </Row>
-              <br />
-              <Row>
-                <Col span={12}>
+              <Row className="columns">
+                <Col>
                   <Input
+                    className="inputregister"
                     name="password"
                     id="password"
                     type="password"
@@ -541,9 +538,9 @@ const Register = () => {
                     onChange={(e) => handleDatas(e)}
                   />
                 </Col>
-                <Col span={1}></Col>
-                <Col span={11}>
+                <Col>
                   <Input
+                    className="inputregister"
                     id="confirm_password"
                     name="confirm_password"
                     type="password"
@@ -555,10 +552,10 @@ const Register = () => {
                   />
                 </Col>
               </Row>
-              <br />
-              <Row>
-                <Col span={12}>
+              <Row className="columns">
+                <Col>
                   <Input
+                    className="inputregister"
                     name="first_name"
                     size="large"
                     placeholder="ชื่อ"
@@ -567,9 +564,9 @@ const Register = () => {
                     onChange={(e) => handleDatas(e)}
                   />
                 </Col>
-                <Col span={1}></Col>
-                <Col span={11}>
+                <Col>
                   <Input
+                    className="inputregister"
                     name="last_name"
                     size="large"
                     placeholder="นามสกุล"
@@ -582,11 +579,10 @@ const Register = () => {
               <>
                 {routeParams.id === "05" ? (
                   <>
-                    <br></br>
-                    <Row>
-                      <Col span={3}></Col>
+                    <Row className="columns">
                       <Col>
                         <Select
+                          className="inputregister"
                           showSearch
                           name="faculty_id"
                           placeholder="คณะ"
@@ -599,18 +595,12 @@ const Register = () => {
                               .toLowerCase()
                               .includes(input.toLowerCase())
                           }
-                          style={{
-                            width: 400,
-                          }}
                           options={DataFaculty}
                         />
                       </Col>
-                    </Row>
-                    <br></br>
-                    <Row>
-                      <Col span={3}></Col>
                       <Col>
                         <Select
+                          className="inputregister"
                           showSearch
                           name="department_id"
                           placeholder="สาขา"
@@ -623,9 +613,6 @@ const Register = () => {
                               .toLowerCase()
                               .includes(input.toLowerCase())
                           }
-                          style={{
-                            width: 400,
-                          }}
                           options={DataDepartment}
                         />
                       </Col>

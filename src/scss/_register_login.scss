@@ -9,9 +9,65 @@
     float: right;
   }
 
-  .test{
-    background: red;
+  .inputregister{
+    width: 400px;
+    margin-bottom: 20px;
   } 
+  .inputregister2{
+    width: 120px;
+    margin-bottom: 20px;
+  } 
+  .columnregister2 {
+    width: 400px;
+    column-gap: 4.6%;
+  }
+  .columnregister {
+    justify-content: start;
+    column-gap: 4.6%;
+  }
+  .columns {
+    display: flex;
+    column-gap: 4.6%;
+    justify-content: space-between;
+  }
+  @media only screen and (max-width: 1024px) {
+    .formregister{
+      width: 100%;
+      justify-content: center;
+    }
+    .columns {
+      flex-direction: column;
+    }
+    .inputregister{
+      width: 70%;
+      margin-bottom: 20px;
+    } 
+    .inputregister2{
+      width: 120px;
+      margin-bottom: 20px;
+    } 
+    .columnregister2 {
+      width: 70%;
+      flex-direction: column;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .columns {
+      flex-direction: column;
+    }
+    .inputregister{
+      width: 100%;
+      margin-bottom: 20px;
+    } 
+    .inputregister2{
+      width: 120px;
+      margin-bottom: 20px;
+    } 
+    .columnregister2 {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
 
   //login
   .logincontainer{

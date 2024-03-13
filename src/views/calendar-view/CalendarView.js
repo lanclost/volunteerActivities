@@ -112,7 +112,6 @@ const CalendarView = () => {
   }, []);
 
   const [selectedFile, setSelectedFile] = useState(null);
-  const [newImageName, setNewImageName] = useState('');
   const [imagePreview, setImagePreview] = useState(null);
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -162,7 +161,6 @@ const CalendarView = () => {
       const news_id = `NSID-U${Date.now().toString(16)}`
       const newFileName = `prefix_${Date.now()}.${fileExtension}`;
       formData.append('file', selectedFile, newFileName);
-      setNewImageName(newFileName)
       const response = await axios.post(
         `${GROBAL.BASE_SERVER.URL}news/insert/index.php`,
         {

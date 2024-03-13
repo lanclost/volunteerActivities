@@ -328,50 +328,48 @@ const RegisterType = () => {
     <div>
       <br />
       <Row justify="center">
-        <Col span={10}>
+        <Col xs={24} sm={22} md={20} lg={18} xl={16} xxl={14}>
           <Card className="cardlogin">
             <Form id="form" onSubmit={(e) => handleSubmit(e)}>
-              <Row>
-                <Col span={7}></Col>
+              <Row justify="center">
                 <Col>
                   <h1>ลงทะเบียน</h1>
                   <h6>รายละเอียดอาจารย์และเจ้าหน้าที่ทั่วไป</h6>
                 </Col>
               </Row>
               <br />
-              <Row>
-                <Col span={11}>
-                  <Select
-                    name="user_type_id"
-                    placeholder="ระดับผู้ใช้"
-                    size="large"
-                    onChange={(e) => handleSelect("user_type_id", e)}
-                    style={{
-                      width: 265,
-                    }}
-                    required
-                    options={DataUserType}
-                  />
-                </Col>
-                <Col span={2}></Col>
-                <Col span={11}>
-                  <Select
-                    name="prefix_id"
-                    placeholder="คำนำหน้า"
-                    size="large"
-                    onChange={(e) => handleSelect("prefix_id", e)}
-                    style={{
-                      width: 120,
-                    }}
-                    required
-                    options={DataPrefix}
-                  />
+              <Row className="columns">
+                <Col className="columnregister2">
+                  <Row className="columnregister">
+                    <Col>
+                      <Select
+                        className="inputregister2"
+                        name="user_type_id"
+                        placeholder="ระดับผู้ใช้"
+                        size="large"
+                        onChange={(e) => handleSelect("user_type_id", e)}
+                        required
+                        options={DataUserType}
+                      />
+                    </Col>
+                    <Col>
+                      <Select
+                        className="inputregister2"
+                        name="prefix_id"
+                        placeholder="คำนำหน้า"
+                        size="large"
+                        onChange={(e) => handleSelect("prefix_id", e)}
+                        required
+                        options={DataPrefix}
+                      />
+                    </Col>
+                  </Row>
                 </Col>
               </Row>
-              <br />
-              <Row>
-                <Col span={12}>
+              <Row className="columns">
+                <Col>
                   <Input
+                    className="inputregister"
                     name="username"
                     size="large"
                     // autoComplete="username"
@@ -381,9 +379,9 @@ const RegisterType = () => {
                     required
                   />
                 </Col>
-                <Col span={1}></Col>
-                <Col span={11}>
+                <Col>
                   <Input
+                    className="inputregister"
                     name="telephone"
                     size="large"
                     placeholder="เบอร์โทร"
@@ -393,10 +391,10 @@ const RegisterType = () => {
                   />
                 </Col>
               </Row>
-              <br />
-              <Row>
-                <Col span={12}>
+              <Row className="columns">
+                <Col>
                   <Input
+                    className="inputregister"
                     name="password"
                     id="password"
                     type="password"
@@ -407,9 +405,9 @@ const RegisterType = () => {
                     onChange={(e) => handleDatas(e)}
                   />
                 </Col>
-                <Col span={1}></Col>
-                <Col span={11}>
+                <Col>
                   <Input
+                    className="inputregister"
                     id="confirm_password"
                     name="confirm_password"
                     type="password"
@@ -421,10 +419,10 @@ const RegisterType = () => {
                   />
                 </Col>
               </Row>
-              <br />
-              <Row>
-                <Col span={12}>
+              <Row className="columns">
+                <Col>
                   <Input
+                    className="inputregister"
                     name="first_name"
                     size="large"
                     placeholder="ชื่อ"
@@ -433,9 +431,9 @@ const RegisterType = () => {
                     onChange={(e) => handleDatas(e)}
                   />
                 </Col>
-                <Col span={1}></Col>
-                <Col span={11}>
+                <Col>
                   <Input
+                    className="inputregister"
                     name="last_name"
                     size="large"
                     placeholder="นามสกุล"
@@ -445,11 +443,10 @@ const RegisterType = () => {
                   />
                 </Col>
               </Row>
-              <br></br>
-              <Row>
-                <Col span={3}></Col>
+              <Row className="columns">
                 <Col>
                   <Select
+                    className="inputregister"
                     showSearch
                     name="faculty_id"
                     placeholder="คณะ"
@@ -461,18 +458,12 @@ const RegisterType = () => {
                         .toLowerCase()
                         .includes(input.toLowerCase())
                     }
-                    style={{
-                      width: 400,
-                    }}
                     options={DataFaculty}
                   />
                 </Col>
-              </Row>
-              <br />
-              <Row>
-                <Col span={3}></Col>
                 <Col>
                   <Select
+                    className="inputregister"
                     showSearch
                     name="department_id"
                     placeholder="สาขา"
@@ -484,9 +475,6 @@ const RegisterType = () => {
                         .toLowerCase()
                         .includes(input.toLowerCase())
                     }
-                    style={{
-                      width: 400,
-                    }}
                     options={DataDepartment}
                   />
                 </Col>
