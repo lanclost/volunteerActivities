@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/volunteerActivities/static/css/main.4514c9b1.css",
-    "main.js": "/volunteerActivities/static/js/main.64d6f0bc.js",
+    "main.css": "/volunteerActivities/static/css/main.8485e9af.css",
+    "main.js": "/volunteerActivities/static/js/main.29f3bec6.js",
     "static/css/523.9fbce0e0.chunk.css": "/volunteerActivities/static/css/523.9fbce0e0.chunk.css",
     "static/js/523.a071fd83.chunk.js": "/volunteerActivities/static/js/523.a071fd83.chunk.js",
     "static/js/5520.0bb16d5b.chunk.js": "/volunteerActivities/static/js/5520.0bb16d5b.chunk.js",
-    "static/js/4009.b3e18ec3.chunk.js": "/volunteerActivities/static/js/4009.b3e18ec3.chunk.js",
-    "static/js/7254.484dd370.chunk.js": "/volunteerActivities/static/js/7254.484dd370.chunk.js",
+    "static/js/4009.c6f9e046.chunk.js": "/volunteerActivities/static/js/4009.c6f9e046.chunk.js",
+    "static/js/7254.8520bd63.chunk.js": "/volunteerActivities/static/js/7254.8520bd63.chunk.js",
     "static/js/9010.a88fdc15.chunk.js": "/volunteerActivities/static/js/9010.a88fdc15.chunk.js",
     "static/js/3001.03a2168a.chunk.js": "/volunteerActivities/static/js/3001.03a2168a.chunk.js",
     "static/js/6188.b752bd49.chunk.js": "/volunteerActivities/static/js/6188.b752bd49.chunk.js",
@@ -33,7 +33,7 @@
     "static/js/2878.34b383cf.chunk.js": "/volunteerActivities/static/js/2878.34b383cf.chunk.js",
     "static/js/1886.ee631fca.chunk.js": "/volunteerActivities/static/js/1886.ee631fca.chunk.js",
     "static/js/986.0957d5ca.chunk.js": "/volunteerActivities/static/js/986.0957d5ca.chunk.js",
-    "static/js/552.7e0b75dd.chunk.js": "/volunteerActivities/static/js/552.7e0b75dd.chunk.js",
+    "static/js/552.92a84879.chunk.js": "/volunteerActivities/static/js/552.92a84879.chunk.js",
     "static/js/7488.04eef690.chunk.js": "/volunteerActivities/static/js/7488.04eef690.chunk.js",
     "static/js/2321.7968c018.chunk.js": "/volunteerActivities/static/js/2321.7968c018.chunk.js",
     "static/js/1011.1ddab87a.chunk.js": "/volunteerActivities/static/js/1011.1ddab87a.chunk.js",
@@ -60,13 +60,13 @@
     "static/media/apple-touch-icon.png": "/volunteerActivities/static/media/apple-touch-icon.0f1b20919aacd1ca4d4b.png",
     "static/media/8.jpg": "/volunteerActivities/static/media/8.35ee8919ea545620a475.jpg",
     "index.html": "/volunteerActivities/index.html",
-    "main.4514c9b1.css.map": "/volunteerActivities/static/css/main.4514c9b1.css.map",
-    "main.64d6f0bc.js.map": "/volunteerActivities/static/js/main.64d6f0bc.js.map",
+    "main.8485e9af.css.map": "/volunteerActivities/static/css/main.8485e9af.css.map",
+    "main.29f3bec6.js.map": "/volunteerActivities/static/js/main.29f3bec6.js.map",
     "523.9fbce0e0.chunk.css.map": "/volunteerActivities/static/css/523.9fbce0e0.chunk.css.map",
     "523.a071fd83.chunk.js.map": "/volunteerActivities/static/js/523.a071fd83.chunk.js.map",
     "5520.0bb16d5b.chunk.js.map": "/volunteerActivities/static/js/5520.0bb16d5b.chunk.js.map",
-    "4009.b3e18ec3.chunk.js.map": "/volunteerActivities/static/js/4009.b3e18ec3.chunk.js.map",
-    "7254.484dd370.chunk.js.map": "/volunteerActivities/static/js/7254.484dd370.chunk.js.map",
+    "4009.c6f9e046.chunk.js.map": "/volunteerActivities/static/js/4009.c6f9e046.chunk.js.map",
+    "7254.8520bd63.chunk.js.map": "/volunteerActivities/static/js/7254.8520bd63.chunk.js.map",
     "9010.a88fdc15.chunk.js.map": "/volunteerActivities/static/js/9010.a88fdc15.chunk.js.map",
     "3001.03a2168a.chunk.js.map": "/volunteerActivities/static/js/3001.03a2168a.chunk.js.map",
     "6188.b752bd49.chunk.js.map": "/volunteerActivities/static/js/6188.b752bd49.chunk.js.map",
@@ -93,7 +93,7 @@
     "2878.34b383cf.chunk.js.map": "/volunteerActivities/static/js/2878.34b383cf.chunk.js.map",
     "1886.ee631fca.chunk.js.map": "/volunteerActivities/static/js/1886.ee631fca.chunk.js.map",
     "986.0957d5ca.chunk.js.map": "/volunteerActivities/static/js/986.0957d5ca.chunk.js.map",
-    "552.7e0b75dd.chunk.js.map": "/volunteerActivities/static/js/552.7e0b75dd.chunk.js.map",
+    "552.92a84879.chunk.js.map": "/volunteerActivities/static/js/552.92a84879.chunk.js.map",
     "7488.04eef690.chunk.js.map": "/volunteerActivities/static/js/7488.04eef690.chunk.js.map",
     "2321.7968c018.chunk.js.map": "/volunteerActivities/static/js/2321.7968c018.chunk.js.map",
     "1011.1ddab87a.chunk.js.map": "/volunteerActivities/static/js/1011.1ddab87a.chunk.js.map",
@@ -119,7 +119,7 @@
     "535.57b4f196.chunk.js.map": "/volunteerActivities/static/js/535.57b4f196.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4514c9b1.css",
-    "static/js/main.64d6f0bc.js"
+    "static/css/main.8485e9af.css",
+    "static/js/main.29f3bec6.js"
   ]
 }
